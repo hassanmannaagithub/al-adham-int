@@ -13,10 +13,15 @@ interface ValueSectionProps {
 function ValueSection({ title, subtitle, description }: ValueSectionProps) {
   return (
     <div className="flex flex-col items-center px-4 md:px-8">
-      <div className="w-3 h-3 bg-black rounded-full mb-4"></div>
-      <h2 className="text-xl md:text-2xl font-bold text-center text-white">{title}</h2>
-      <h3 className="text-2xl md:text-3xl font-bold text-center text-white mb-6">{subtitle}</h3>
+      <div className="w-6 h-6 bg-black rounded-full mb-4"></div>
       
+      {/* Fixed height container for title and subtitle */}
+      <div className="h-32 flex flex-col justify-start items-center">
+        <h2 className="text-about-us-1 md:text-about-us-1 font-light text-center text-white">{title}</h2>
+        <h3 className="text-about-us-1 md:text-about-us-1 font-bold text-center text-white">{subtitle}</h3>
+      </div>
+      
+      {/* Black line will now be aligned at the same position */}
       <div className="w-24 h-1 bg-black mb-8"></div>
       
       <p className="text-center text-white max-w-md whitespace-pre-line">
@@ -85,10 +90,10 @@ export default function AboutPage() {
         </div>
         
         <div className="relative z-10 container mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">ABOUT US</h1>
+          <h1 className="text-3388 md:text-3388 font-light text-center text-white mb-24">ABOUT US</h1>
           
           {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 mb-60">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}
@@ -115,37 +120,40 @@ export default function AboutPage() {
           <div className="absolute inset-0" style={{ backgroundColor: '#303030', opacity: 0.84 }}></div>
         </div>
         
-        <div className="relative z-10">
+        <div className="relative z-10 py-36">
           {/* Empathy Section */}
-          <section className="py-16">
+          <section className="">
             <div className="container mx-auto">
-              <CoreValueSection
-                title="EMPATHY"
-                description={`We are empathetic & caring.\nWe invest in people - not robots.\nWe value emotional human connections. We value culture & giving back.\nWe value inclusitivity & diversity. We simply care.`}
-                underlineColor="orange-500"
-              />
+              <div className="text-center px-4 max-w-5xl mx-auto">
+                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white mb-4">EMPATHY</h2>
+                <p className="text-144 font-extralight text-white mb-2 whitespace-pre-line">We are empathetic & caring</p>
+                <p className="text-144 font-extralight text-white mb-2 whitespace-pre-line">We invest in people - not in robots.</p>
+                <p className="text-144 font-extralight text-white mb-10 whitespace-pre-line">We value emotional human connections. We value culture & giving back.<br/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
+              </div>
             </div>
           </section>
-          
+
+          <div className="w-40 h-2 bg-orange-500 mx-auto mb-14"></div>
+
           {/* Craftsmanship Section */}
-          <section className="py-16">
+          <section>
             <div className="container mx-auto">
-              <CoreValueSection
-                title="CRAFTSMANSHIP"
-                description={`We are a family owned business and believe that craftsmanship is everything.\nCrafts-manship is skill that is passed to us over generations.\nIt's care, it's passion, it's obsession, it's magical.`}
-                underlineColor="orange-500"
-              />
+              <div className="text-center px-4 max-w-5xl mx-auto">
+                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white mb-4">CRAFTSMANSHIP</h2>
+                <p className="text-144 font-extralight text-white mb-10 whitespace-pre-line">We are a family owned business and believe that craftsmanship is everything. <br/> Crafts-manship is skill that is passed to us over generations. <br/> It's care, it's passion, it's obsession, it's magical.</p>             
+              </div>
             </div>
           </section>
           
+          <div className="w-40 h-2 bg-orange-500 mx-auto mb-14"></div>
+
           {/* Creativity Section */}
-          <section className="py-16">
+          <section>
             <div className="container mx-auto">
-              <CoreValueSection
-                title="CREATIVITY"
-                description={`We believe in sparking creativity that empowers individuals to dream, act and envision a brighter future leaving a lasting impact.\nCreativity is our driving force.`}
-                underlineColor="orange-500"
-              />
+              <div className="text-center px-4 max-w-5xl mx-auto mb-16">
+                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white mb-4">CREATIVITY</h2>
+                <p className="text-144 font-extralight text-white mb-10 whitespace-pre-line">We believe in sparking creativity that empowers individuals to dream, act and envision <br/>a brighter future leaving a lasting impact.<br/>Creativity is our driving force.</p>             
+              </div>
             </div>
           </section>
         </div>

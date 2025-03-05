@@ -8,49 +8,49 @@ const clients = [
   {
     id: 1,
     name: 'Dubai Television',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-1.png',
     alt: 'Dubai Television Logo'
   },
   {
     id: 2,
     name: 'ZEE',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-2.png',
     alt: 'ZEE Logo'
   },
   {
     id: 3,
     name: 'ATL',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-3.png',
     alt: 'ATL Logo'
   },
   {
     id: 4,
     name: 'Abu Dhabi TV',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-4.png',
     alt: 'Abu Dhabi TV Logo'
   },
   {
     id: 5,
     name: 'MBC Group',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-5.png',
     alt: 'MBC Group Logo'
   },
   {
     id: 6,
     name: 'Shahid',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-6.png',
     alt: 'Shahid Logo'
   },
   {
     id: 7,
     name: 'SBA',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-7.png',
     alt: 'SBA Logo'
   },
   {
     id: 8,
     name: 'twofour54',
-    logo: '/api/placeholder/140/90',
+    logo: '/clients/client-8.png',
     alt: 'twofour54 Logo'
   }
 ];

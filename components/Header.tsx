@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface HeaderProps {
   showProductions?: boolean;
@@ -10,21 +10,83 @@ interface HeaderProps {
 
 export default function Header({ showProductions = true }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
+  useEffect(() => {
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Check if we're scrolled down at all
+      if (currentScrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+      
+      // Determine scroll direction and control visibility
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide header
+        setIsVisible(false);
+      } else {
+        // Scrolling up - show header
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', controlHeader);
+    
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', controlHeader);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="bg-[#5c1816] text-white">
+    <header 
+      className={`
+        fixed top-0 left-0 w-full bg-[#5c1816] text-white z-50
+        transition-all duration-300 ease-in-out
+        ${isScrolled ? 'shadow-lg' : ''}
+        ${isVisible ? 'translate-y-0' : '-translate-y-[calc(100%-10px)]'}
+      `}
+    >
       <div className="container mx-auto px-4 py-4 flex flex-col xl:flex-row justify-between items-center">
         <div className="w-full xl:w-auto flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <div className="mr-2">
-              <Image src="/logo-1.webp" width={60} height={60} alt="Al Adham Productions Logo" className="w-[60px] h-[60px] xl:w-[90px] xl:h-[90px] rounded-full bg-orange-500" />
+              <Image 
+                src="/logo-1.webp" 
+                width={60} 
+                height={60} 
+                alt="Al Adham Productions Logo" 
+                className={`
+                  w-[60px] h-[60px] xl:w-[90px] xl:h-[90px] rounded-full bg-orange-500
+                  transition-all duration-300
+                  ${isScrolled ? 'xl:w-[70px] xl:h-[70px]' : ''}
+                `}
+              />
             </div>
             <div className="flex flex-col">
-              <Image src="/logo-2.webp" width={218} height={62} alt="Al Adham Productions Logo" className="w-[150px] h-auto xl:w-[218px]" />
+              <Image 
+                src="/logo-2.webp" 
+                width={218} 
+                height={62} 
+                alt="Al Adham Productions Logo" 
+                className={`
+                  w-[150px] h-auto xl:w-[218px]
+                  transition-all duration-300
+                  ${isScrolled ? 'xl:w-[180px]' : ''}
+                `}
+              />
               {/* <span className="text-2xl font-light">al adham</span> */}
               {/* {showProductions && <span className="text-lg uppercase tracking-widest">productions</span>} */}
             </div>
@@ -49,7 +111,11 @@ export default function Header({ showProductions = true }: HeaderProps) {
         </div>
         
         {/* Navigation Links */}
-        <nav className={`${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto mt-4 xl:mt-0 items-center gap-4 xl:gap-8`}>
+        <nav className={`
+          ${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto 
+          mt-4 xl:mt-0 items-center gap-4 xl:gap-8
+          transition-all duration-300
+        `}>
           <Link href="/production" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
           <Link href="/clients" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
           <Link href="/about" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
@@ -63,6 +129,13 @@ export default function Header({ showProductions = true }: HeaderProps) {
           </button>
         </nav>
       </div>
+
+      {/* Visual indicator for collapsed header */}
+      <div className={`
+        h-[10px] w-full bg-[#5c1816] opacity-0
+        transition-opacity duration-300
+        ${!isVisible ? 'opacity-100' : ''}
+      `}></div>
     </header>
   );
 }

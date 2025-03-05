@@ -89,8 +89,8 @@ export default function ClientsPage() {
                   <div className="bg-white bg-opacity-0 p-4 flex items-center justify-center">
                   <Image 
                       src={client.logo}
-                      width={140}
-                      height={80}
+                      width={200}
+                      height={100}
                       alt={client.alt}
                       className="max-h-16 object-contain"
                     />
@@ -119,7 +119,7 @@ export default function ClientsPage() {
           
           {/* Divider Line */}
           <div className="flex justify-center mt-16">
-            <div className="w-32 h-1 bg-orange-500"></div>
+            <div className="w-64 h-3 bg-orange-500"></div>
           </div>
         </div>
       </section>

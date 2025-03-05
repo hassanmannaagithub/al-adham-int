@@ -1,5 +1,4 @@
 'use client';
-
 import Header from '@/components/Header';
 import Image from 'next/image';
 
@@ -59,15 +58,23 @@ export default function ClientsPage() {
   // Split clients into two rows (4 clients per row)
   const firstRowClients = clients.slice(0, 4);
   const secondRowClients = clients.slice(4, 8);
-
+  
   return (
     <main className="min-h-screen">
       <Header />
       
-      {/* Clients Section with dark overlay background */}
-      <section className="bg-gradient-to-b from-gray-800 to-gray-900 py-16 relative">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 bg-black opacity-40 z-0"></div>
+      {/* Clients Section with background image and dark overlay */}
+      <section className="py-16 relative min-h-screen">
+        {/* Background image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: "url('/clients/our-clients-background.webp')" 
+          }}
+        ></div>
+        
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Title */}
@@ -80,10 +87,10 @@ export default function ClientsPage() {
               {firstRowClients.map((client) => (
                 <div key={client.id} className="flex justify-center">
                   <div className="bg-white bg-opacity-0 p-4 flex items-center justify-center">
-                    <Image 
-                      src={client.logo} 
-                      width={140} 
-                      height={80} 
+                  <Image 
+                      src={client.logo}
+                      width={140}
+                      height={80}
                       alt={client.alt}
                       className="max-h-16 object-contain"
                     />
@@ -97,10 +104,10 @@ export default function ClientsPage() {
               {secondRowClients.map((client) => (
                 <div key={client.id} className="flex justify-center">
                   <div className="bg-white bg-opacity-0 p-4 flex items-center justify-center">
-                    <Image 
-                      src={client.logo} 
-                      width={140} 
-                      height={80} 
+                  <Image 
+                      src={client.logo}
+                      width={140}
+                      height={80}
                       alt={client.alt}
                       className="max-h-16 object-contain"
                     />

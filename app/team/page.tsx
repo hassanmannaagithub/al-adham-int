@@ -14,10 +14,10 @@ export default function TeamPage() {
       <Header showProductions={false} />
       
       {/* Team Section with Beige Background */}
-      <section className="bg-[#e7e2cf] py-16">
+      <section className="bg-[#dfd9ca] py-16">
         <div className="container mx-auto px-4">
           {/* Section Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-20">OUR TEAM</h1>
+          <h1 className="text-4xl md:text-4xl font-light text-center mb-20">OUR TEAM</h1>
           
           {/* Custom Team Layout */}
           <div className="flex flex-col space-y-16">

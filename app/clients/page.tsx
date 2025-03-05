@@ -64,30 +64,30 @@ export default function ClientsPage() {
       <Header />
       
       {/* Clients Section with background image and dark overlay */}
-      <section className="py-16 relative min-h-screen">
+      <section className="py-16 relative min-h-screen flex items-center">
         {/* Background image */}
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('/clients/our-clients-background.webp')" 
+          style={{
+            backgroundImage: "url('/clients/our-clients-background.webp')"
           }}
         ></div>
         
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-70 z-0"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 w-full">
           {/* Section Title */}
           <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-20">OUR CLIENTS</h1>
           
-          {/* Clients Grid Layout */}
-          <div className="flex flex-col space-y-16">
+          {/* Clients Grid Layout - Centered on md screens and up */}
+          <div className="flex flex-col space-y-16 md:max-w-4xl md:mx-auto">
             {/* First Row - 4 Clients */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
               {firstRowClients.map((client) => (
                 <div key={client.id} className="flex justify-center">
                   <div className="bg-white bg-opacity-0 p-4 flex items-center justify-center">
-                  <Image 
+                    <Image 
                       src={client.logo}
                       width={200}
                       height={100}
@@ -104,7 +104,7 @@ export default function ClientsPage() {
               {secondRowClients.map((client) => (
                 <div key={client.id} className="flex justify-center">
                   <div className="bg-white bg-opacity-0 p-4 flex items-center justify-center">
-                  <Image 
+                    <Image 
                       src={client.logo}
                       width={140}
                       height={80}

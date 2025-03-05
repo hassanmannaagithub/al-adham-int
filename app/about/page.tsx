@@ -72,9 +72,19 @@ export default function AboutPage() {
     <main className="min-h-screen">
       <Header showProductions={true} />
       
-      {/* About Us Title Section */}
-      <section className="bg-orange-500 py-16">
-        <div className="container mx-auto">
+      {/* About Us Title Section - Now with image background */}
+      <section className="py-16 relative">
+        <div className="absolute inset-0 z-0 bg-[#ed7e0c]">
+          <Image
+            src="/about-us-1.webp"
+            alt="About us backdrop"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+        
+        <div className="relative z-10 container mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-center text-white mb-12">ABOUT US</h1>
           
           {/* Three columns for values */}
@@ -91,65 +101,55 @@ export default function AboutPage() {
         </div>
       </section>
       
-      {/* Empathy Section with Dark Background */}
-      <section className="bg-gray-800 py-16 relative">
-        <div className="absolute inset-0 z-0 opacity-30">
+      {/* Core Values Section with a single shared background */}
+      <div className="relative">
+        {/* Single background image for all core value sections */}
+        <div className="absolute inset-0 z-0">
           <Image
-            src="/background-mountains.webp"
-            alt="Mountains backdrop"
+            src="/about-us-2.webp" 
+            alt="Unified core values backdrop"
             fill
             className="object-cover"
           />
+          {/* Dark overlay added on top of the image */}
+          <div className="absolute inset-0" style={{ backgroundColor: '#303030', opacity: 0.84 }}></div>
         </div>
         
-        <div className="relative z-10 container mx-auto">
-          <CoreValueSection
-            title="EMPATHY"
-            description={`We are empathetic & caring.\nWe invest in people - not robots.\nWe value emotional human connections. We value culture & giving back.\nWe value inclusitivity & diversity. We simply care.`}
-            underlineColor="orange-500"
-          />
+        <div className="relative z-10">
+          {/* Empathy Section */}
+          <section className="py-16">
+            <div className="container mx-auto">
+              <CoreValueSection
+                title="EMPATHY"
+                description={`We are empathetic & caring.\nWe invest in people - not robots.\nWe value emotional human connections. We value culture & giving back.\nWe value inclusitivity & diversity. We simply care.`}
+                underlineColor="orange-500"
+              />
+            </div>
+          </section>
+          
+          {/* Craftsmanship Section */}
+          <section className="py-16">
+            <div className="container mx-auto">
+              <CoreValueSection
+                title="CRAFTSMANSHIP"
+                description={`We are a family owned business and believe that craftsmanship is everything.\nCrafts-manship is skill that is passed to us over generations.\nIt's care, it's passion, it's obsession, it's magical.`}
+                underlineColor="orange-500"
+              />
+            </div>
+          </section>
+          
+          {/* Creativity Section */}
+          <section className="py-16">
+            <div className="container mx-auto">
+              <CoreValueSection
+                title="CREATIVITY"
+                description={`We believe in sparking creativity that empowers individuals to dream, act and envision a brighter future leaving a lasting impact.\nCreativity is our driving force.`}
+                underlineColor="orange-500"
+              />
+            </div>
+          </section>
         </div>
-      </section>
-      
-      {/* Craftsmanship Section with Dark Background */}
-      <section className="bg-gray-800 py-16 relative">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <Image
-            src="/background-landscapes.webp"
-            alt="Landscape backdrop"
-            fill
-            className="object-cover"
-          />
-        </div>
-        
-        <div className="relative z-10 container mx-auto">
-          <CoreValueSection
-            title="CRAFTSMANSHIP"
-            description={`We are a family owned business and believe that craftsmanship is everything.\nCrafts-manship is skill that is passed to us over generations.\nIt's care, it's passion, it's obsession, it's magical.`}
-            underlineColor="orange-500"
-          />
-        </div>
-      </section>
-      
-      {/* Creativity Section with Dark Background */}
-      <section className="bg-gray-800 py-16 relative">
-        <div className="absolute inset-0 z-0 opacity-30">
-          <Image
-            src="/background-desert.webp"
-            alt="Desert backdrop"
-            fill
-            className="object-cover"
-          />
-        </div>
-        
-        <div className="relative z-10 container mx-auto">
-          <CoreValueSection
-            title="CREATIVITY"
-            description={`We believe in sparking creativity that empowers individuals to dream, act and envision a brighter future leaving a lasting impact.\nCreativity is our driving force.`}
-            underlineColor="orange-500"
-          />
-        </div>
-      </section>
+      </div>
     </main>
   );
 }

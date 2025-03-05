@@ -5,6 +5,10 @@ import TeamMember from '@/components/TeamMember';
 import { teamMembers } from '@/data/teamData';
 
 export default function TeamPage() {
+  // Split team members into top row (2) and bottom row (3)
+  const topRowMembers = teamMembers.slice(0, 2);
+  const bottomRowMembers = teamMembers.slice(2, 5);
+
   return (
     <main className="min-h-screen">
       <Header showProductions={false} />
@@ -15,17 +19,33 @@ export default function TeamPage() {
           {/* Section Title */}
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-20">OUR TEAM</h1>
           
-          {/* Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
-            {teamMembers.map((member) => (
-              <div key={member.id} className="col-span-1">
-                <TeamMember 
-                  name={member.name}
-                  position={member.position}
-                  image={member.image}
-                />
-              </div>
-            ))}
+          {/* Custom Team Layout */}
+          <div className="flex flex-col space-y-16">
+            {/* Top Row - 2 Members */}
+            <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-16 lg:gap-24">
+              {topRowMembers.map((member) => (
+                <div key={member.id} className="flex justify-center">
+                  <TeamMember 
+                    name={member.name}
+                    position={member.position}
+                    image={member.image}
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Bottom Row - 3 Members */}
+            <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-8 lg:gap-16">
+              {bottomRowMembers.map((member) => (
+                <div key={member.id} className="flex justify-center">
+                  <TeamMember 
+                    name={member.name}
+                    position={member.position}
+                    image={member.image}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

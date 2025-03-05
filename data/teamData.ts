@@ -12,30 +12,30 @@ export interface TeamMember {
       id: 1,
       name: 'MOUMEN ALMALLA',
       position: 'CEO, Founder, Director And Producer',
-      image: '/api/placeholder/370/370'
+      image: '/person-1.png'
     },
     {
       id: 2,
       name: 'SARIA HALLAK',
       position: 'Head Of Legal And Business Affairs',
-      image: '/api/placeholder/370/370'
+      image: '/person-1.png'
     },
     {
       id: 3,
       name: 'AHMAD ALMALLA',
       position: 'Creative Producer And Head Of Content',
-      image: '/api/placeholder/370/370'
+      image: '/person-1.png'
     },
     {
       id: 4,
       name: 'RUBA ALMALLA',
       position: 'Creative Producer And Head Of Communications',
-      image: '/api/placeholder/370/370'
+      image: '/person-1.png'
     },
     {
       id: 5,
       name: 'YAMEN ABD ALNOUR',
       position: 'Director and content strategist',
-      image: '/api/placeholder/370/370'
+      image: '/person-1.png'
     }
   ];

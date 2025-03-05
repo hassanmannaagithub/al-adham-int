@@ -1,8 +1,9 @@
+
 import Image from 'next/image';
 
 interface TeamMemberProps {
   name: string;
-  position: string;
+  position: string[];
   image: string;
 }
 
@@ -14,14 +15,18 @@ export default function TeamMember({ name, position, image }: TeamMemberProps) {
           src={image}
           alt={name}
           className="rounded-full grayscale"
-          width={256}
-          height={256}
+          width={320}
+          height={320}
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <h2 className="text-xl font-bold text-center">{name}</h2>
-      <div className="w-16 h-1 bg-orange-500 my-2"></div>
-      <p className="text-center">{position}</p>
+      <h2 className="text-2xl font-bold text-center">{name}</h2>
+      <div className="w-[10.5rem] h-1 bg-orange-500 my-1"></div>
+      <div className="text-center">
+        {position.map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}
+      </div>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const config: Config = {
         'about-us-1': '2.5rem',
         'about-us-subtitle': '1.375rem',
         'super-title': '3.375rem',
-        'team-member-name': '2.18rem'
+        'team-member-name': '2rem'
       },
       textRendering: {
         'optimizeSharpness': 'optimizeSpeed',

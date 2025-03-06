@@ -66,7 +66,7 @@ export default function ClientsPage() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/clients/our-clients-background.webp')"
+            backgroundImage: "url('/clients/imgs/clients-background.jpg')"
           }}
         ></div>
         
@@ -115,9 +115,9 @@ export default function ClientsPage() {
             </div>
           </div>
           
-          {/* Divider Line */}
+          {/* Divider Line - Hidden on small screens, visible from md breakpoint and up */}
           <div className="flex justify-center mt-12">
-            <div className="w-64 h-3 bg-orange-500"></div>
+            <div className="hidden md:block w-64 h-3 bg-orange-500"></div>
           </div>
         </div>
       </section>

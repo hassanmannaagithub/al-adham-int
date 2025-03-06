@@ -11,7 +11,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'MOUMEN ALMALLA',
-    position: ['CEO, Founder', 'Director And Producer'],
+    position: ['CEO, Founder,', 'Director And Producer'],
     image: '/person-1.png'
   },
   {

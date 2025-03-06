@@ -8,16 +8,17 @@ export default function Home() {
     <div className="h-screen overflow-hidden flex flex-col">
       <section className="relative flex-1">
         <div className="absolute inset-0">
-        <Image 
-          src="/home/imgs/home-background.jpg" 
-          alt="Family watching projection" 
-          fill 
-          priority 
-          className="object-cover transform scale-x-[-1]" 
-        />
+          <Image
+            src="/home/imgs/home-background.jpg"
+            alt="Family watching projection"
+            fill
+            priority
+            className="object-cover transform scale-x-[-1]"
+          />
         </div>
         
-        <div className="relative h-full flex items-center px-20 pt-10">
+        <div className="relative h-full flex items-center px-20 pt-20">
+          {/* Adjusted padding-top to account for header overlap */}
           <div className="max-w-xl text-white">
             <h1 className="text-8xl md:text-8xl font-light mb-2">
               OUR VISION

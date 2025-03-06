@@ -74,8 +74,11 @@ export default function AboutPage() {
   
   return (
     <div className="min-h-screen">
+      {/* Added top padding/margin to push content down */}
+      <div className="pt-28"></div>
+      
       {/* About Us Title Section - Now with image background */}
-      <section className="py-16 relative">
+      <section className="relative">
         <div className="absolute inset-0 z-0 bg-[#ed7e0c]">
           <Image
             src="/about-us-1.webp"
@@ -90,7 +93,7 @@ export default function AboutPage() {
           <h1 className="text-3388 md:text-3388 font-light text-center text-white mb-24">ABOUT US</h1>
           
           {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 mb-48">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}

@@ -11,10 +11,10 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-[#dfd9ca]">
       {/* Team Section with Beige Background */}
-      <section className="py-16">
+      <section className="py-52">
         <div className="container mx-auto px-4">
           {/* Section Title */}
-          <h1 className="text-4xl md:text-4xl font-light text-center mb-20">OUR TEAM</h1>
+          <h1 className="text-super-title md:text-super-title font-light text-center mb-32">OUR TEAM</h1>
           
           {/* Small and Medium screens: Grid layout (1 or 2 per row) */}
           <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">

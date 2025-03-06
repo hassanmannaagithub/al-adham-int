@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Direct font-face declaration */
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: url('/fonts/AktivGroteskRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Your existing variables here */
+}
+
+@layer base {
+  html, body {
+    font-family: 'Aktiv Grotesk', system-ui, -apple-system, sans-serif !important;
+  }
+}
+
+/* Your other global styles */

@@ -1,16 +1,32 @@
 // app/layout.tsx - Server Component
-import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import HeaderSpacer from '@/components/HeaderSpacer';
 import BackgroundWrapper from '@/components/BackgroundWrapper';
 
+// Import your custom font - Aktiv Grotesk Regular
+const customFont = localFont({
+  src: [
+    {
+      path: '../public/fonts/AktivGroteskRegular.ttf', // Make sure this matches your exact filename
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  display: 'swap',
+  variable: '--font-custom', // This creates a CSS variable you can use
+});
+
+// Keep Inter as a fallback or for specific elements if needed
+import { Inter } from 'next/font/google';
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic']
+  style: ['normal', 'italic'],
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -25,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${customFont.variable} ${inter.variable}`}>
         <BackgroundWrapper>
           <Header />
           <HeaderSpacer />

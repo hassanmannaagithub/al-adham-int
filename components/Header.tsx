@@ -77,7 +77,7 @@ export default function Header({ showProductions = true }: HeaderProps) {
       }}
       initial={{ y: 0 }}
     >
-      <div className="container mx-[3.7rem] py-5 flex flex-col xl:flex-row justify-between items-center">
+      <div className="container mx-[3.7rem] py-4 flex flex-col xl:flex-row justify-between items-center">
         <div className="w-full xl:w-auto flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <div className="mr-5">

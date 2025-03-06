@@ -2,12 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-   --header-height: 122px;
- }
- 
- @media (max-width: 1279px) {
-   :root {
-     --header-height: 92px;
-   }
- }

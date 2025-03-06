@@ -1,9 +1,9 @@
-// app/layout.tsx
 import { Inter } from 'next/font/google';
 import './globals.css';
 import type { Metadata } from 'next';
+import Header from '@/components/Header'; // Adjust path as needed
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -22,7 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        <main className="pt-[var(--header-height)]">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

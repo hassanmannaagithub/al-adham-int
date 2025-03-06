@@ -1,8 +1,9 @@
+// Updated Header.tsx
 'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface HeaderProps {
   showProductions?: boolean;
@@ -13,12 +14,21 @@ export default function Header({ showProductions = true }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
+  const [headerHeight, setHeaderHeight] = useState<number>(0);
+  const headerRef = useRef<HTMLElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
+    // Get initial header height
+    if (headerRef.current) {
+      setHeaderHeight(headerRef.current.offsetHeight);
+      // Set a CSS variable for header height that can be used in layout
+      document.documentElement.style.setProperty('--header-height', `${headerRef.current.offsetHeight}px`);
+    }
+
     const controlHeader = () => {
       const currentScrollY = window.scrollY;
       
@@ -39,6 +49,15 @@ export default function Header({ showProductions = true }: HeaderProps) {
       }
       
       setLastScrollY(currentScrollY);
+
+      // Update header height when it changes
+      if (headerRef.current) {
+        const newHeight = headerRef.current.offsetHeight;
+        if (newHeight !== headerHeight) {
+          setHeaderHeight(newHeight);
+          document.documentElement.style.setProperty('--header-height', `${newHeight}px`);
+        }
+      }
     };
 
     // Add scroll event listener
@@ -48,10 +67,11 @@ export default function Header({ showProductions = true }: HeaderProps) {
     return () => {
       window.removeEventListener('scroll', controlHeader);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, headerHeight]);
 
   return (
     <header 
+      ref={headerRef}
       className={`
         fixed top-0 left-0 w-full bg-[#5c1816] text-white z-50
         transition-all duration-300 ease-in-out
@@ -87,8 +107,6 @@ export default function Header({ showProductions = true }: HeaderProps) {
                   ${isScrolled ? 'xl:w-[180px]' : ''}
                 `}
               />
-              {/* <span className="text-2xl font-light">al adham</span> */}
-              {/* {showProductions && <span className="text-lg uppercase tracking-widest">productions</span>} */}
             </div>
           </Link>
           

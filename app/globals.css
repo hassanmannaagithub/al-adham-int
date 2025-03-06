@@ -2,5 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global resets or styles can go here. 
-   No extra details beyond what's in the screenshot. */
+:root {
+   --header-height: 122px;
+ }
+ 
+ @media (max-width: 1279px) {
+   :root {
+     --header-height: 92px;
+   }
+ }

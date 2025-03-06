@@ -61,7 +61,7 @@ export default function ClientsPage() {
   return (
     <div className="min-h-screen">
       {/* Clients Section with background image and dark overlay */}
-      <section className="py-16 relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center">
         {/* Background image */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -73,9 +73,10 @@ export default function ClientsPage() {
         {/* Dark overlay */}
         <div className="absolute inset-0 z-0" style={{ backgroundColor: '#303030', opacity: 0.84 }}></div>
         
-        <div className="container mx-auto px-4 relative z-10 w-full">
-          {/* Section Title */}
-          <h1 className="text-super-title md:text-super-title font-light text-center text-white mb-20">OUR CLIENTS</h1>
+        {/* Added a pt-20 (padding-top) to push all content down */}
+        <div className="container mx-auto px-4 relative z-10 w-full pt-10">
+          {/* Section Title - Added more margin-top (mt-16) to push down further */}
+          <h1 className="text-super-title md:text-super-title font-light text-center text-white mb-20 mt-16">OUR CLIENTS</h1>
           
           {/* Clients Grid Layout - Centered on md screens and up */}
           <div className="flex flex-col space-y-16 md:max-w-4xl md:mx-auto">

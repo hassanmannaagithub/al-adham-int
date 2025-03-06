@@ -10,7 +10,7 @@ import BackgroundWrapper from '@/components/BackgroundWrapper';
 const customFont = localFont({
   src: [
     {
-      path: '../public/fonts/AktivGroteskRegular.ttf', // Make sure this matches your exact filename
+      path: '../public/fonts/AktivGroteskVFTrial-Regular.ttf', // Make sure this matches your exact filename
       weight: '400',
       style: 'normal',
     }

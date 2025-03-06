@@ -18,6 +18,9 @@ const config: Config = {
         'super-title': '3.375rem',
         'team-member-name': '2.18rem'
       },
+      textRendering: {
+        'optimizeSharpness': 'optimizeSpeed',
+      },
       width: {
         'black-dash': '8.75rem',
       }

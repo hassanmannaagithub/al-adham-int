@@ -15,6 +15,12 @@
   /* Your existing variables here */
 }
 
+.text-sharp {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 @layer base {
   html, body {
     font-family: 'Aktiv Grotesk', system-ui, -apple-system, sans-serif !important;

@@ -66,7 +66,7 @@ export default function Header({ showProductions = true }: HeaderProps) {
   return (
     <motion.header 
       id="main-header"
-      className="fixed top-0 left-0 w-full bg-[#5c1816] text-white z-50"
+      className="fixed top-0 left-0 w-full bg-[#5f1e1d] text-white z-50"
       animate={{ 
         y: isHeaderVisible ? 0 : 'calc(-100% + 10px)'
       }}
@@ -77,19 +77,19 @@ export default function Header({ showProductions = true }: HeaderProps) {
       }}
       initial={{ y: 0 }}
     >
-      <div className="container mx-auto px-4 py-4 flex flex-col xl:flex-row justify-between items-center">
+      <div className="container mx-[3.7rem] py-5 flex flex-col xl:flex-row justify-between items-center">
         <div className="w-full xl:w-auto flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <div className="mr-2">
+            <div className="mr-5">
               <Image 
                 src="/logo-1.webp" 
                 width={60} 
                 height={60} 
                 alt="Al Adham Productions Logo" 
-                className="w-[60px] h-[60px] xl:w-[90px] xl:h-[90px] rounded-full bg-orange-500"
+                className="w-[69px] h-[69px] xl:w-[69px] xl:h-[69px] rounded-full bg-orange-500"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col pt-4">
               <Image 
                 src="/logo-2.webp" 
                 width={218} 
@@ -121,14 +121,14 @@ export default function Header({ showProductions = true }: HeaderProps) {
         {/* Navigation Links */}
         <nav className={`
           ${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto 
-          mt-4 xl:mt-0 items-center gap-4 xl:gap-8
+          mt-4 xl:mt-0 items-center gap-4 xl:gap-6
         `}>
-          <Link href="/production" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
-          <Link href="/clients" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
-          <Link href="/about" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
-          <Link href="/team" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
-          <Link href="/services" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
-          <Link href="/contacts" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
+          <Link href="/production" className="text-rendering-optimizeSharpness antialiased uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
+          <Link href="/clients" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
+          <Link href="/about" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
+          <Link href="/team" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
+          <Link href="/services" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
+          <Link href="/contacts" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
           <button aria-label="Search" className="text-white py-2 xl:py-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -138,7 +138,7 @@ export default function Header({ showProductions = true }: HeaderProps) {
       </div>
 
       {/* The visible strip that will remain when header is collapsed */}
-      <div className="h-[10px] w-full bg-[#5c1816]"></div>
+      <div className="h-[10px] w-full bg-[#5f1e1d]"></div>
     </motion.header>
   );
 }

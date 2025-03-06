@@ -19,21 +19,7 @@ const customFont = localFont({
   variable: '--font-custom', // This creates a CSS variable you can use
 });
 
-// Keep Inter as a fallback or for specific elements if needed
-import { Inter } from 'next/font/google';
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-inter',
-});
-
-export const metadata: Metadata = {
-  title: 'Al Adham Productions',
-  description: 'Artfully telling stories that are deeply rooted',
-};
-
+// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -41,10 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${customFont.variable} ${inter.variable}`}>
+      <body className={`${customFont.variable}`}>
         <BackgroundWrapper>
           <Header />
-          <HeaderSpacer />
           <main>
             {children}
           </main>

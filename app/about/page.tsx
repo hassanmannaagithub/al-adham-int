@@ -1,6 +1,5 @@
 'use client';
 
-import Header from '@/components/Header';
 import Image from 'next/image';
 
 interface ValueSectionProps {
@@ -74,9 +73,7 @@ export default function AboutPage() {
   ];
   
   return (
-    <main className="min-h-screen">
-      <Header showProductions={true} />
-      
+    <div className="min-h-screen">
       {/* About Us Title Section - Now with image background */}
       <section className="py-16 relative">
         <div className="absolute inset-0 z-0 bg-[#ed7e0c]">
@@ -158,6 +155,6 @@ export default function AboutPage() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

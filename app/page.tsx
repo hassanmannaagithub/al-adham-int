@@ -2,13 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <main className="h-screen overflow-hidden flex flex-col">
-      <Header showProductions={true} />
-      
+    <div className="h-screen overflow-hidden flex flex-col">
       <section className="relative flex-1">
         <div className="absolute inset-0">
           <Image
@@ -38,6 +35,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

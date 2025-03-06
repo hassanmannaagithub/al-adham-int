@@ -1,5 +1,4 @@
 'use client';
-import Header from '@/components/Header';
 import Image from 'next/image';
 
 // Client data
@@ -60,9 +59,7 @@ export default function ClientsPage() {
   const secondRowClients = clients.slice(4, 8);
   
   return (
-    <main className="min-h-screen">
-      <Header />
-      
+    <div className="min-h-screen">
       {/* Clients Section with background image and dark overlay */}
       <section className="py-16 relative min-h-screen flex items-center">
         {/* Background image */}
@@ -123,6 +120,6 @@ export default function ClientsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

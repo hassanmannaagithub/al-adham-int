@@ -1,6 +1,5 @@
 'use client';
 
-import Header from '@/components/Header';
 import TeamMember from '@/components/TeamMember';
 import { teamMembers } from '@/data/teamData';
 
@@ -10,9 +9,7 @@ export default function TeamPage() {
   const bottomRowMembers = teamMembers.slice(2);
   
   return (
-    <main className="min-h-screen bg-[#dfd9ca]">
-      <Header showProductions={false} />
-      
+    <div className="min-h-screen bg-[#dfd9ca]">
       {/* Team Section with Beige Background */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -69,6 +66,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

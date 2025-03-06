@@ -1,9 +1,9 @@
-// Updated Header.tsx
 'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useScroll } from 'framer-motion';
 
 interface HeaderProps {
   showProductions?: boolean;
@@ -11,54 +11,71 @@ interface HeaderProps {
 
 export default function Header({ showProductions = true }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
+  const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
+  const { scrollY } = useScroll();
+  const prevScrollYRef = useRef<number>(0);
+  const lastToggleTimeRef = useRef<number>(Date.now());
+  const scrollDirectionBufferRef = useRef<number[]>([]);
+  
+  // Use effect for smoother scroll handling with debounce
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const now = Date.now();
+      
+      // Add current direction to buffer (1 for down, -1 for up)
+      scrollDirectionBufferRef.current.push(
+        currentScrollY > prevScrollYRef.current ? 1 : -1
+      );
+      
+      // Keep only the last 5 directions
+      if (scrollDirectionBufferRef.current.length > 5) {
+        scrollDirectionBufferRef.current.shift();
+      }
+      
+      // Calculate dominant direction (sum of buffer)
+      const dominantDirection = scrollDirectionBufferRef.current.reduce((a, b) => a + b, 0);
+      
+      // Only toggle if enough time has passed (debounce)
+      if (now - lastToggleTimeRef.current > 100) {
+        if (currentScrollY < 50) {
+          // Always show header near the top
+          setIsHeaderVisible(true);
+        } else if (dominantDirection < -2) {
+          // Consistently scrolling up - show header
+          setIsHeaderVisible(true);
+          lastToggleTimeRef.current = now;
+        } else if (dominantDirection > 2 && currentScrollY > 100) {
+          // Consistently scrolling down and not at the top - hide header
+          setIsHeaderVisible(false);
+          lastToggleTimeRef.current = now;
+        }
+      }
+      
+      prevScrollYRef.current = currentScrollY;
+    };
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  useEffect(() => {
-    const controlHeader = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Check if we're scrolled down at all
-      if (currentScrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-      
-      // Determine scroll direction and control visibility
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down - hide header
-        setIsVisible(false);
-      } else {
-        // Scrolling up - show header
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    // Add scroll event listener
-    window.addEventListener('scroll', controlHeader);
-    
-    // Clean up event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', controlHeader);
-    };
-  }, [lastScrollY]);
-
   return (
-    <header 
-      className={`
-        fixed top-0 left-0 w-full bg-[#5c1816] text-white z-50
-        transition-all duration-300 ease-in-out
-        ${isScrolled ? 'shadow-lg' : ''}
-        ${isVisible ? 'translate-y-0' : '-translate-y-[calc(100%-10px)]'}
-      `}
+    <motion.header 
+      id="main-header"
+      className="fixed top-0 left-0 w-full bg-[#5c1816] text-white z-50"
+      animate={{ 
+        y: isHeaderVisible ? 0 : 'calc(-100% + 10px)'
+      }}
+      transition={{ 
+        type: "tween", // Changed from spring to tween for more predictable animation
+        duration: 0.3,
+        ease: "easeInOut" // Smoother easing function
+      }}
+      initial={{ y: 0 }}
     >
       <div className="container mx-auto px-4 py-4 flex flex-col xl:flex-row justify-between items-center">
         <div className="w-full xl:w-auto flex items-center justify-between">
@@ -69,11 +86,7 @@ export default function Header({ showProductions = true }: HeaderProps) {
                 width={60} 
                 height={60} 
                 alt="Al Adham Productions Logo" 
-                className={`
-                  w-[60px] h-[60px] xl:w-[90px] xl:h-[90px] rounded-full bg-orange-500
-                  transition-all duration-300
-                  ${isScrolled ? 'xl:w-[70px] xl:h-[70px]' : ''}
-                `}
+                className="w-[60px] h-[60px] xl:w-[90px] xl:h-[90px] rounded-full bg-orange-500"
               />
             </div>
             <div className="flex flex-col">
@@ -82,11 +95,7 @@ export default function Header({ showProductions = true }: HeaderProps) {
                 width={218} 
                 height={62} 
                 alt="Al Adham Productions Logo" 
-                className={`
-                  w-[150px] h-auto xl:w-[218px]
-                  transition-all duration-300
-                  ${isScrolled ? 'xl:w-[180px]' : ''}
-                `}
+                className="w-[150px] h-auto xl:w-[218px]"
               />
             </div>
           </Link>
@@ -113,7 +122,6 @@ export default function Header({ showProductions = true }: HeaderProps) {
         <nav className={`
           ${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto 
           mt-4 xl:mt-0 items-center gap-4 xl:gap-8
-          transition-all duration-300
         `}>
           <Link href="/production" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
           <Link href="/clients" className="uppercase font-normal text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
@@ -129,12 +137,8 @@ export default function Header({ showProductions = true }: HeaderProps) {
         </nav>
       </div>
 
-      {/* Visual indicator for collapsed header */}
-      <div className={`
-        h-[10px] w-full bg-[#5c1816] opacity-0
-        transition-opacity duration-300
-        ${!isVisible ? 'opacity-100' : ''}
-      `}></div>
-    </header>
+      {/* The visible strip that will remain when header is collapsed */}
+      <div className="h-[10px] w-full bg-[#5c1816]"></div>
+    </motion.header>
   );
 }

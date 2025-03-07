@@ -80,9 +80,10 @@ export default function ClientsPage() {
       <section className="relative min-h-screen flex flex-col">
         {/* Background image */}
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 bg-cover bg-no-repeat"
           style={{
-            backgroundImage: "url('/clients/imgs/clients-background.jpg')"
+            backgroundImage: "url('/clients/imgs/clients-background.jpg')",
+            backgroundPosition: "center 45%" // Modified this line to drop the background down
           }}
         ></div>
         
@@ -90,26 +91,26 @@ export default function ClientsPage() {
         <div className="absolute inset-0 z-0" style={{ backgroundColor: '#303030', opacity: 0.84 }}></div>
         
         {/* Title section - completely separate from content */}
-        <div className="container mx-auto px-4 relative z-10 pt-20">
+        <div className="container mx-auto px-4 relative z-10 pt-28">
           {/* You can adjust the margin-top/padding-top here to move the title up/down */}
-          <h1 className="tracking-widest text-super-title md:text-super-title font-extralight text-center text-white mt-36">
+          <h1 className="tracking-widest text-4xl md:text-super-title font-extralight text-center text-white mt-16 md:mt-36">
             OUR CLIENTS
           </h1>
         </div>
         
         {/* Content section - completely separate from title */}
-        <div className="container mx-auto px-4 relative z-10 flex-grow mt-20">
+        <div className="container mx-auto px-4 relative z-10 flex-grow mt-12 md:mt-24">
           {/* Clients Grid Layout - Centered on md screens and up */}
           <div className="flex flex-col space-y-8 md:max-w-4xl md:mx-auto">
             {/* First Row - 4 Clients */}
-            <div className="grid grid-cols-4">
+            <div className="grid grid-cols-2 md:grid-cols-4">
               {firstRowClients.map((client) => (
-                <div key={client.id} className="flex justify-center">
+                <div key={client.id} className="flex justify-center mb-8 md:mb-0">
                   {/* Minimum 300px width container with styling */}
                   <div 
                     className="p-4 flex items-center justify-center" 
                     style={{ 
-                      minWidth: '300px', 
+                      minWidth: '100%', // Responsive on small screens
                       width: '100%',
                       backgroundColor: 'rgba(255, 255, 255, 0)' // equivalent to bg-white bg-opacity-0
                     }}
@@ -121,6 +122,7 @@ export default function ClientsPage() {
                       alt={client.alt}
                       className="object-contain"
                       style={{ maxHeight: '6rem' }} // equivalent to max-h-24
+                      sizes="(max-width: 768px) 45vw, 300px" // Responsive image loading
                     />
                   </div>
                 </div>
@@ -128,14 +130,14 @@ export default function ClientsPage() {
             </div>
             
             {/* Second Row - 4 Clients */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-0 md:gap-6">
               {secondRowClients.map((client) => (
-                <div key={client.id} className="flex justify-center">
+                <div key={client.id} className="flex justify-center mb-8 md:mb-0">
                   {/* Minimum 300px width container with styling */}
                   <div 
                     className="p-4 flex items-center justify-center" 
                     style={{ 
-                      minWidth: '300px', 
+                      minWidth: '100%', // Responsive on small screens
                       width: '100%',
                       backgroundColor: 'rgba(255, 255, 255, 0)' // equivalent to bg-white bg-opacity-0
                     }}
@@ -147,6 +149,7 @@ export default function ClientsPage() {
                       alt={client.alt}
                       className="object-contain"
                       style={{ maxHeight: '6rem' }} // equivalent to max-h-24
+                      sizes="(max-width: 768px) 45vw, 300px" // Responsive image loading
                     />
                   </div>
                 </div>
@@ -155,7 +158,7 @@ export default function ClientsPage() {
           </div>
           
           {/* Divider Line - Hidden on small screens, visible from md breakpoint and up */}
-          <div className="flex justify-center mt-20">
+          <div className="flex justify-center mt-12 md:mt-20">
             <div className="hidden md:block w-64 h-3 bg-[#ed7e0c]"></div>
           </div>
         </div>

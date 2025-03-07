@@ -9,15 +9,15 @@ interface ValueSectionProps {
 }
 
 // Component for sections with orange background
-function ValueSection({ title, subtitle, description }: ValueSectionProps) {
+function ValueSection({ title, subtitle, description, noWrap = true }: ValueSectionProps & { noWrap?: boolean }) {
   return (
     <div className="flex flex-col items-center px-4 md:px-20">
-      <div className="w-7 h-7 bg-black rounded-full mb-6"></div>
+      <div className="w-7 h-7 bg-black rounded-full mb-8"></div>
       
       {/* Reduced height container for title and subtitle */}
-      <div className="h-36 flex flex-col justify-start items-center">
-        <h2 className="text-about-us-1 md:about-us-1 font-light text-center text-white leading-tight">{title}</h2>
-        <h2 className="text-about-us-1 md:text-about-us-1 font-bold text-center text-white leading-tight">{subtitle}</h2>
+      <div className="h-[9rem] flex flex-col justify-start items-center">
+        <h2 className="text-[2rem] md:text-[2rem] font-light text-center text-white leading-tight">{title}</h2>
+        <h2 className={`text-[2rem] md:text-[2rem] font-bold text-center text-white leading-tight ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
       </div>
       
       <div className="w-black-dash h-2 bg-black mb-1"></div>
@@ -50,6 +50,7 @@ interface ValueData {
   title: string;
   subtitle: string;
   description: string;
+  noWrap?: boolean;
 }
 
 export default function AboutPage() {
@@ -57,17 +58,20 @@ export default function AboutPage() {
     {
       title: "OUR VISION",
       subtitle: "IS BRIGHT",
-      description: "To artfully tell stories that are deeply rooted, close to reality, loaded with value to move people's lives."
+      description: "To artfully tell stories that are deeply rooted, close to reality, loaded with value to move people's lives.",
+      noWrap: true
     },
     {
       title: "OUR MISSION",
       subtitle: "GIVES US LIGHT",
-      description: "We are committed to entertain, inform & inspire to have a positive impact on the future generations that are deeply rooted in their culture but evolved. Our stories will improve the perceptions other's have about our roots."
+      description: "We are committed to entertain, inform & inspire to have a positive impact on the future generations that are deeply rooted in their culture but evolved. Our stories will improve the perceptions other's have about our roots.",
+      noWrap: true
     },
     {
       title: "OUR VALUES",
-      subtitle: "SHAPE OUR RELATIONSHIPS",
-      description: "AUTHENTICITY\nWe believe in authentic storytelling, showing genuine real stories.\nWe believe being authentic is about trust. Trusting the human, the tradition and its innovations."
+      subtitle: "SHAPE OUR\nRELATIONSHIPS",
+      description: "AUTHENTICITY\nWe believe in authentic storytelling, showing genuine real stories.\nWe believe being authentic is about trust. Trusting the human, the tradition and its innovations.",
+      noWrap: false
     }
   ];
   
@@ -99,6 +103,7 @@ export default function AboutPage() {
                 title={value.title}
                 subtitle={value.subtitle}
                 description={value.description}
+                noWrap={value.noWrap}
               />
             ))}
           </div>

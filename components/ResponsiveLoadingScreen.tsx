@@ -13,13 +13,15 @@ interface ResponsiveLoadingScreenProps {
   };
   centered?: boolean;
   onLoadingComplete?: () => void;
+  backgroundColor?: string; // Add background color prop
 }
 
 const ResponsiveLoadingScreen = ({ 
   imageSrc, 
   loaderPosition = { x: 50, y: 50 }, // Default to center
   centered = false,
-  onLoadingComplete
+  onLoadingComplete,
+  backgroundColor = '#5f1e1d' // Default to black
 }: ResponsiveLoadingScreenProps) => {
   const [loading, setLoading] = useState(true);
 
@@ -39,21 +41,23 @@ const ResponsiveLoadingScreen = ({
     <AnimatePresence mode="wait">
       {loading && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ backgroundColor }}
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0,
             transition: { duration: 0.8, ease: "easeInOut" }
           }}
         >
-          <div className="relative w-full h-full">
-            <Image
-              src={imageSrc}
-              alt="Loading Background"
-              fill
-              className="object-contain object-center"
-              priority
-            />
+          <div className="relative flex items-center justify-center w-full h-full bg-[#5f1e1d]">
+            <div className="relative w-full h-full">
+              <Image
+                src={imageSrc}
+                alt="Loading Background"
+                fill
+                className="object-contain object-center"
+                priority
+              />
             
             {centered ? (
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -71,6 +75,7 @@ const ResponsiveLoadingScreen = ({
                 <CircleLoader size={60} />
               </div>
             )}
+            </div>
           </div>
         </motion.div>
       )}

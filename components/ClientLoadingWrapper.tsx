@@ -30,7 +30,8 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
     <>
       <ResponsiveLoadingScreen 
         imageSrc="/loading/loading-background.webp"
-        loaderPosition={{ x: 50, y: 70 }} // Positioned at 50% from left, 55% from top
+        loaderPosition={{ x: 50, y: 70 }}
+        backgroundColor="#5f1e1d" 
         onLoadingComplete={handleLoadingComplete}
       />
       <div 

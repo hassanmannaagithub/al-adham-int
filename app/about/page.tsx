@@ -23,7 +23,7 @@ function ValueSection({ title, subtitle, description, noWrap = true }: ValueSect
       <div className="w-black-dash h-2 bg-black mb-7"></div>
       
       {/* Updated text formatting for better spacing and alignment */}
-      <p className="text-[1.4rem] text-center font-extralight text-white max-w-[22rem] leading-relaxed tracking-wider whitespace-pre-line">
+      <p className="text-[1.4rem] text-center font-extralight text-white max-w-[22rem] leading-tight tracking-wider whitespace-pre-line">
         {description}
       </p>
     </div>
@@ -59,19 +59,19 @@ export default function AboutPage() {
     {
       title: "OUR VISION",
       subtitle: "IS BRIGHT",
-      description: "To artfully tell stories that are\ndeeply rooted, close to reality,\nloaded with value to move\npeople's lives.",
+      description: "To artfully tell stories that\nare deeply rooted, close to\nreality, loaded with value to\nmove people's lives.",
       noWrap: true
     },
     {
       title: "OUR MISSION",
       subtitle: "GIVES US LIGHT",
-      description: "We are committed to\nentertain, inform & inspire to\nhave a positive impact on the\nfuture generations that are\ndeeply rooted in their culture\nbut evolved. Our stories will\nimprove the\nperceptions other's have\nabout our roots.",
+      description: "We are committed to\nentertain, inform & inspire to have\na positive impact on the future\ngenerations that are deeply\nrooted in their culture but evolved.\nOur stories will improve the\nperceptions other's have about\nour roots.",
       noWrap: true
     },
     {
       title: "OUR VALUES",
       subtitle: "SHAPE OUR\nRELATIONSHIPS",
-      description: "AUTHENTICITY\nWe believe in authentic\nstorytelling, showing genuine\nreal stories.\n\nWe believe being authentic is\nabout trust. Trusting the human,\nthe tradition and its innovations.",
+      description: "AUTHENTICITY\nWe believe in authentic\nstorytelling, showing genuine\nreal stories.\nWe believe being authentic is\nabout trust. Trusting the human,\nthe tradition and its innovations.",
       noWrap: false
     }
   ];
@@ -94,10 +94,10 @@ export default function AboutPage() {
         </div>
         
         <div className="relative z-10 container mx-auto">
-        <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-extralight text-center text-white mb-[5.8rem] tracking-widest">ABOUT US</h1>
+        <h1 className="pt-[5.2rem] text-3388 md:text-3388 font-extralight text-center text-white mb-[5.8rem] tracking-widest">ABOUT US</h1>
           
           {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-2 pb-[2.2rem]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 pb-20">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}
@@ -125,15 +125,15 @@ export default function AboutPage() {
           <div className="absolute inset-0" style={{ backgroundColor: '#303030', opacity: 0.84 }}></div>
         </div>
         
-        <div className="relative z-10 py-28">
+        <div className="relative z-10 py-[6.5rem]">
           {/* Empathy Section */}
-          <section className="">
+          <section className="pb-2">
             <div className="container mx-auto">
               <div className="text-center px-4 max-w-5xl mx-auto">
-                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white mb-3 leading-tight">EMPATHY</h2>
-                <p className="text-144 font-extralight text-white mb-1 whitespace-pre-line leading-tight">We are empathetic & caring</p>
-                <p className="text-144 font-extralight text-white mb-1 whitespace-pre-line leading-tight">We invest in people - not in robots.</p>
-                <p className="text-144 font-extralight text-white mb-8 whitespace-pre-line leading-tight">We value emotional human connections. We value culture & giving back.<br/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
+                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">EMPATHY</h2>
+                <p className="text-144 font-extralight text-white mb-1 whitespace-pre-line leading-snug tracking-widest">We are empathetic & caring</p>
+                <p className="text-144 font-extralight text-white mb-1 whitespace-pre-line leading-snug tracking-widest">We invest in people - not in robots.</p>
+                <p className="text-144 font-extralight text-white mb-8 whitespace-pre-line leading-snug tracking-widest">We value emotional human connections. We value culture & giving back.<br/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
               </div>
             </div>
           </section>
@@ -141,23 +141,23 @@ export default function AboutPage() {
           <div className="w-40 h-2 bg-orange-500 mx-auto mb-10"></div>
 
           {/* Craftsmanship Section */}
-          <section>
+          <section >
             <div className="container mx-auto">
               <div className="text-center px-4 max-w-5xl mx-auto">
-                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white mb-3 leading-tight">CRAFTSMANSHIP</h2>
-                <p className="text-144 font-extralight text-white mb-8 whitespace-pre-line leading-tight">We are a family owned business and believe that craftsmanship is everything. <br/> Crafts-manship is skill that is passed to us over generations. <br/> It's care, it's passion, it's obsession, it's magical.</p>             
+                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">CRAFTSMANSHIP</h2>
+                <p className="text-144 font-extralight text-white mb-8 whitespace-pre-line leading-snug tracking-widest">We are a family owned business and believe that craftsmanship is everything. <br/> Crafts-manship is skill that is passed to us over generations. <br/> It's care, it's passion, it's obsession, it's magical.</p>             
               </div>
             </div>
           </section>
           
-          <div className="w-40 h-2 bg-orange-500 mx-auto mb-10"></div>
+          <div className="w-36 h-2 bg-orange-500 mx-auto mb-5"></div>
 
           {/* Creativity Section */}
           <section>
             <div className="container mx-auto">
-              <div className="text-center px-4 max-w-5xl mx-auto mb-12">
-                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white mb-3 leading-tight">CREATIVITY</h2>
-                <p className="text-144 font-extralight text-white mb-8 whitespace-pre-line leading-tight">We believe in sparking creativity that empowers individuals to dream, act and envision <br/>a brighter future leaving a lasting impact.<br/>Creativity is our driving force.</p>             
+              <div className="text-center px-4 max-w-5xl mx-auto">
+                <h2 className="text-5xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">CREATIVITY</h2>
+                <p className="text-144 font-extralight text-white mb-8 whitespace-pre-line leading-snug tracking-widest">We believe in sparking creativity that empowers individuals to dream, act and envision <br/>a brighter future leaving a lasting impact.<br/>Creativity is our driving force.</p>             
               </div>
             </div>
           </section>

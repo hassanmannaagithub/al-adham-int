@@ -12,7 +12,7 @@ export default function BackgroundWrapper({ children }: { children: React.ReactN
       case '/':
         return 'bg-white'; // Home page
       case '/about':
-        return 'bg-gray-100'; // About page
+        return 'bg-[#ed7e0c]'; // About page
       case '/services':
         return 'bg-blue-50'; // Services page
       case '/team':

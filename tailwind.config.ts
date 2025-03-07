@@ -11,9 +11,9 @@ const config: Config = {
     extend: {
       fontSize: {
         '65': '4.0625rem',
-        '144': '1.44rem',
+        '144': '1.5rem',
         '3388': '3.388rem',
-        'about-us-1': '2.5rem',
+        'about-us-1': '2.3rem',
         'about-us-subtitle': '1.375rem',
         'super-title': '3.375rem',
         'team-member-name': '2rem'

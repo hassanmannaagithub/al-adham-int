@@ -12,17 +12,17 @@ interface ValueSectionProps {
 function ValueSection({ title, subtitle, description, noWrap = true }: ValueSectionProps & { noWrap?: boolean }) {
   return (
     <div className="flex flex-col items-center px-4 md:px-20">
-      <div className="w-7 h-7 bg-black rounded-full mb-8"></div>
+      <div className="w-7 h-7 bg-black rounded-full"></div>
       
-      {/* Reduced height container for title and subtitle */}
-      <div className="h-[9rem] flex flex-col justify-start items-center">
+      {/* Title and subtitle container */}
+      <div className="h-[9rem] flex flex-col justify-center items-center mb-8">
         <h2 className="text-[2rem] md:text-[2rem] font-light text-center text-white leading-tight">{title}</h2>
         <h2 className={`text-[2rem] md:text-[2rem] font-bold text-center text-white leading-tight ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
       </div>
       
-      <div className="w-black-dash h-2 bg-black mb-1"></div>
+      <div className="w-black-dash h-2 bg-black mb-16"></div>
       
-      <p className="mt-6 text-center text-about-us-subtitle font-light text-white max-w-md whitespace-pre-line leading-snug">
+      <p className="text-center text-base font-light text-white max-w-xs mx-auto leading-relaxed">
         {description}
       </p>
     </div>
@@ -93,10 +93,10 @@ export default function AboutPage() {
         </div>
         
         <div className="relative z-10 container mx-auto">
-        <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-light text-center text-white mb-24">ABOUT US</h1>
+        <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-light text-center text-white mb-[5.8rem]">ABOUT US</h1>
           
           {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pb-16">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}

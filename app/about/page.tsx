@@ -12,22 +12,18 @@ interface ValueSectionProps {
 function ValueSection({ title, subtitle, description, noWrap = true }: ValueSectionProps & { noWrap?: boolean }) {
   return (
     <div className="flex flex-col items-center px-4 md:px-20">
-      <div className="w-7 h-7 bg-black rounded-full mb-4"></div>
+      <div className="w-7 h-7 bg-black rounded-full mb-9"></div>
       
       {/* Title and subtitle container */}
-      <div className="h-[9rem] flex flex-col mb-8">
+      <div className="h-[7rem] flex flex-col mb-8">
         {/* Title is now positioned absolutely the same regardless of subtitle */}
-        <div className="h-12 flex items-center justify-center">
-          <h2 className="text-[2rem] md:text-[2rem] font-light text-center text-white leading-tight">{title}</h2>
-        </div>
-        <div className="flex-grow flex flex-col justify-start items-center">
-          <h2 className={`text-[2rem] md:text-[2rem] font-bold text-center text-white leading-tight ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
-        </div>
+          <h2 className="text-about-us-1 md:text-about-us-1 font-thin text-center text-white leading-none tracking-wider">{title}</h2>
+          <h2 className={`text-about-us-1 md:text-about-us-1 font-bold text-center text-white leading-none tracking-wider ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
       </div>
       
-      <div className="w-black-dash h-2 bg-black mb-16"></div>
+      <div className="w-black-dash h-2 bg-black mb-5"></div>
       
-      <p className="text-center text-base font-light text-white max-w-xs mx-auto leading-relaxed">
+      <p className="text-about-us-subtitle text-center font-extralight text-white max-w-xs mx-auto leading-relaxed">
         {description}
       </p>
     </div>
@@ -101,7 +97,7 @@ export default function AboutPage() {
         <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-extralight text-center text-white mb-[5.8rem] tracking-widest">ABOUT US</h1>
           
           {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pb-[2.2rem]">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}

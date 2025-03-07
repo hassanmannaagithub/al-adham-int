@@ -122,14 +122,14 @@ export default function Header({ showProductions = true }: HeaderProps) {
         {/* Navigation Links with responsive text sizes */}
         <nav className={`
           ${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto 
-          mt-4 xl:mt-0 items-center gap-2 sm:gap-3 md:gap-4 xl:gap-6
+          mt-2 items-center gap-2 sm:gap-3 md:gap-4 xl:gap-10
         `}>
-          <Link href="/production" className="text-rendering-optimizeSharpness antialiased uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
-          <Link href="/clients" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
-          <Link href="/about" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
-          <Link href="/team" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
-          <Link href="/services" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
-          <Link href="/contacts" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
+          <Link href="/production" className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
+          <Link href="/clients" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
+          <Link href="/about" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
+          <Link href="/team" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
+          <Link href="/services" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
+          <Link href="/contacts" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
           <button aria-label="Search" className="text-white py-2 xl:py-0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />

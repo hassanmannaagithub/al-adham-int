@@ -30,18 +30,12 @@ export default function Home() {
           ></div>
           
           {/* Stronger gradient from left */}
-          <div 
+          <div
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(to right, rgba(222, 122, 26, 0.7) 0%, rgba(222, 122, 26, 0.3) 30%, rgba(222, 122, 26, 0) 45%)'
-            }}
-          ></div>
-          
-          {/* Subtle dark vignette effect */}
-          <div 
-            className="absolute inset-0"
-            style={{
-              boxShadow: 'inset 0 0 150px rgba(0, 0, 0, 0.4)'
+              background: 'linear-gradient(to right, rgba(158, 89, 34, 0.9) 0%, rgba(158, 89, 34, 0.6) 25%, rgba(158, 89, 34, 0.3) 40%, rgba(158, 89, 34, 0) 60%)',
+              maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%)'
             }}
           ></div>
         </div>

@@ -71,31 +71,32 @@ export default function Header({ showProductions = true }: HeaderProps) {
         y: isHeaderVisible ? 0 : 'calc(-100% + 10px)'
       }}
       transition={{ 
-        type: "tween", // Changed from spring to tween for more predictable animation
+        type: "tween",
         duration: 0.3,
-        ease: "easeInOut" // Smoother easing function
+        ease: "easeInOut"
       }}
       initial={{ y: 0 }}
     >
-      <div className="container mx-[3.7rem] py-4 flex flex-col xl:flex-row justify-between items-center">
+      {/* Changed from container with fixed margin to a responsive padding approach */}
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[3.7rem] py-4 flex flex-col xl:flex-row justify-between items-center">
         <div className="w-full xl:w-auto flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <div className="mr-5">
+            <div className="mr-3 sm:mr-4 md:mr-5">
               <Image 
                 src="/logo-1.webp" 
                 width={60} 
                 height={60} 
                 alt="Al Adham Productions Logo" 
-                className="w-[69px] h-[69px] xl:w-[69px] xl:h-[69px] rounded-full bg-orange-500"
+                className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[65px] md:h-[65px] xl:w-[69px] xl:h-[69px] rounded-full bg-orange-500"
               />
             </div>
-            <div className="flex flex-col pt-4">
+            <div className="flex flex-col pt-2 sm:pt-3 md:pt-4">
               <Image 
                 src="/logo-2.webp" 
                 width={218} 
                 height={62} 
                 alt="Al Adham Productions Logo" 
-                className="w-[150px] h-auto xl:w-[218px]"
+                className="w-[120px] sm:w-[135px] md:w-[145px] lg:w-[180px] xl:w-[218px] h-auto"
               />
             </div>
           </Link>
@@ -118,19 +119,19 @@ export default function Header({ showProductions = true }: HeaderProps) {
           </button>
         </div>
         
-        {/* Navigation Links */}
+        {/* Navigation Links with responsive text sizes */}
         <nav className={`
           ${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto 
-          mt-4 xl:mt-0 items-center gap-4 xl:gap-6
+          mt-4 xl:mt-0 items-center gap-2 sm:gap-3 md:gap-4 xl:gap-6
         `}>
-          <Link href="/production" className="text-rendering-optimizeSharpness antialiased uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
-          <Link href="/clients" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
-          <Link href="/about" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
-          <Link href="/team" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
-          <Link href="/services" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
-          <Link href="/contacts" className="uppercase font-semibold text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
+          <Link href="/production" className="text-rendering-optimizeSharpness antialiased uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
+          <Link href="/clients" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
+          <Link href="/about" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
+          <Link href="/team" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
+          <Link href="/services" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
+          <Link href="/contacts" className="uppercase font-semibold text-base sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
           <button aria-label="Search" className="text-white py-2 xl:py-0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
           </button>

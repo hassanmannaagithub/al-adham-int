@@ -46,16 +46,14 @@ const ResponsiveLoadingScreen = ({
             transition: { duration: 0.8, ease: "easeInOut" }
           }}
         >
-          <div className="relative flex items-center justify-center w-full h-full bg-black">
-            <div className="relative w-full h-full max-w-screen max-h-screen">
-              <Image
-                src={imageSrc}
-                alt="Loading Background"
-                fill
-                className="object-contain object-center"
-                priority
-                sizes="100vw"
-              />
+          <div className="relative w-full h-full">
+            <Image
+              src={imageSrc}
+              alt="Loading Background"
+              fill
+              className="object-contain object-center"
+              priority
+            />
             
             {centered ? (
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -73,7 +71,6 @@ const ResponsiveLoadingScreen = ({
                 <CircleLoader size={60} />
               </div>
             )}
-            </div>
           </div>
         </motion.div>
       )}

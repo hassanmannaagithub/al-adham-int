@@ -34,7 +34,7 @@ export default function TeamMember({
           style={{ objectFit: 'cover' }}
         />
       </div>
-      <h2 className="text-team-member-name font-semibold text-center mt-2">{name}</h2>
+      <h2 className="text-team-member-name font-bold text-center mt-1">{name}</h2>
       <div className="w-52 h-1 bg-orange-500"></div>
       <div className="text-center text-144 leading-tight mt-2">
         {position.map((line, index) => (

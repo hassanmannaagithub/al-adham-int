@@ -12,7 +12,7 @@ interface ValueSectionProps {
 function ValueSection({ title, subtitle, description, noWrap = true }: ValueSectionProps & { noWrap?: boolean }) {
   return (
     <div className="flex flex-col items-center px-2 md:px-6">
-      <div className="w-7 h-7 bg-black rounded-full mb-9"></div>
+      <div className="xl:block w-7 h-7 bg-black rounded-full mb-4 xl:mb-9"></div>
       
       {/* Title and subtitle container */}
       <div className="h-[7rem] flex flex-col mb-8">
@@ -96,8 +96,8 @@ export default function AboutPage() {
         <div className="relative z-10 container mx-auto">
         <h1 className="pt-[5.2rem] text-3388 md:text-3388 font-extralight text-center text-white mb-[5.8rem] tracking-widest">ABOUT US</h1>
           
-          {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 pb-20">
+          {/* Modified grid to stack on 1280px and below */}
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 xl:gap-20 pb-20">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}

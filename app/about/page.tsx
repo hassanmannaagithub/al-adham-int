@@ -11,7 +11,7 @@ interface ValueSectionProps {
 // Component for sections with orange background
 function ValueSection({ title, subtitle, description, noWrap = true }: ValueSectionProps & { noWrap?: boolean }) {
   return (
-    <div className="flex flex-col items-center px-4 md:px-20">
+    <div className="flex flex-col items-center px-2 md:px-6">
       <div className="w-7 h-7 bg-black rounded-full mb-9"></div>
       
       {/* Title and subtitle container */}
@@ -21,9 +21,9 @@ function ValueSection({ title, subtitle, description, noWrap = true }: ValueSect
           <h2 className={`text-about-us-1 md:text-about-us-1 font-bold text-center text-white leading-none tracking-wider ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
       </div>
       
-      <div className="w-black-dash h-2 bg-black mb-5"></div>
+      <div className="w-black-dash h-2 bg-black mb-7"></div>
       
-      <p className="text-about-us-subtitle text-center font-extralight text-white max-w-xs mx-auto leading-relaxed">
+      <p className="text-[1.4rem] text-center font-extralight text-white max-w-[19rem] leading-snug tracking-wider">
         {description}
       </p>
     </div>
@@ -97,7 +97,7 @@ export default function AboutPage() {
         <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-extralight text-center text-white mb-[5.8rem] tracking-widest">ABOUT US</h1>
           
           {/* Three columns for values */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pb-[2.2rem]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-2 pb-[2.2rem]">
             {values.map((value, index) => (
               <ValueSection 
                 key={index}

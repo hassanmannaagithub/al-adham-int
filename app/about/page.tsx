@@ -12,12 +12,17 @@ interface ValueSectionProps {
 function ValueSection({ title, subtitle, description, noWrap = true }: ValueSectionProps & { noWrap?: boolean }) {
   return (
     <div className="flex flex-col items-center px-4 md:px-20">
-      <div className="w-7 h-7 bg-black rounded-full"></div>
+      <div className="w-7 h-7 bg-black rounded-full mb-4"></div>
       
       {/* Title and subtitle container */}
-      <div className="h-[9rem] flex flex-col justify-center items-center mb-8">
-        <h2 className="text-[2rem] md:text-[2rem] font-light text-center text-white leading-tight">{title}</h2>
-        <h2 className={`text-[2rem] md:text-[2rem] font-bold text-center text-white leading-tight ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
+      <div className="h-[9rem] flex flex-col mb-8">
+        {/* Title is now positioned absolutely the same regardless of subtitle */}
+        <div className="h-12 flex items-center justify-center">
+          <h2 className="text-[2rem] md:text-[2rem] font-light text-center text-white leading-tight">{title}</h2>
+        </div>
+        <div className="flex-grow flex flex-col justify-start items-center">
+          <h2 className={`text-[2rem] md:text-[2rem] font-bold text-center text-white leading-tight ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
+        </div>
       </div>
       
       <div className="w-black-dash h-2 bg-black mb-16"></div>
@@ -93,7 +98,7 @@ export default function AboutPage() {
         </div>
         
         <div className="relative z-10 container mx-auto">
-        <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-light text-center text-white mb-[5.8rem]">ABOUT US</h1>
+        <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-extralight text-center text-white mb-[5.8rem] tracking-widest">ABOUT US</h1>
           
           {/* Three columns for values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pb-16">

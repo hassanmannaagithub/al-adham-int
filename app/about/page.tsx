@@ -16,14 +16,14 @@ function ValueSection({ title, subtitle, description, noWrap = true }: ValueSect
       
       {/* Title and subtitle container */}
       <div className="h-[7rem] flex flex-col mb-8">
-        {/* Title is now positioned absolutely the same regardless of subtitle */}
-          <h2 className="text-about-us-1 md:text-about-us-1 font-thin text-center text-white leading-none tracking-wider">{title}</h2>
-          <h2 className={`text-about-us-1 md:text-about-us-1 font-bold text-center text-white leading-none tracking-wider ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
+        <h2 className="text-about-us-1 md:text-about-us-1 font-thin text-center text-white leading-none tracking-wider">{title}</h2>
+        <h2 className={`text-about-us-1 md:text-about-us-1 font-bold text-center text-white leading-none tracking-wider ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
       </div>
       
       <div className="w-black-dash h-2 bg-black mb-7"></div>
       
-      <p className="text-[1.4rem] text-center font-extralight text-white max-w-[19rem] leading-snug tracking-wider">
+      {/* Updated text formatting for better spacing and alignment */}
+      <p className="text-[1.4rem] text-center font-extralight text-white max-w-[22rem] leading-relaxed tracking-wider whitespace-pre-line">
         {description}
       </p>
     </div>
@@ -59,19 +59,19 @@ export default function AboutPage() {
     {
       title: "OUR VISION",
       subtitle: "IS BRIGHT",
-      description: "To artfully tell stories that are deeply rooted, close to reality, loaded with value to move people's lives.",
+      description: "To artfully tell stories that are\ndeeply rooted, close to reality,\nloaded with value to move\npeople's lives.",
       noWrap: true
     },
     {
       title: "OUR MISSION",
       subtitle: "GIVES US LIGHT",
-      description: "We are committed to entertain, inform & inspire to have a positive impact on the future generations that are deeply rooted in their culture but evolved. Our stories will improve the perceptions other's have about our roots.",
+      description: "We are committed to\nentertain, inform & inspire to\nhave a positive impact on the\nfuture generations that are\ndeeply rooted in their culture\nbut evolved. Our stories will\nimprove the\nperceptions other's have\nabout our roots.",
       noWrap: true
     },
     {
       title: "OUR VALUES",
       subtitle: "SHAPE OUR\nRELATIONSHIPS",
-      description: "AUTHENTICITY\nWe believe in authentic storytelling, showing genuine real stories.\nWe believe being authentic is about trust. Trusting the human, the tradition and its innovations.",
+      description: "AUTHENTICITY\nWe believe in authentic\nstorytelling, showing genuine\nreal stories.\n\nWe believe being authentic is\nabout trust. Trusting the human,\nthe tradition and its innovations.",
       noWrap: false
     }
   ];

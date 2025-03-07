@@ -31,13 +31,13 @@ export default function Home() {
           
           {/* Stronger gradient from left */}
           <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to right, rgba(158, 89, 34, 0.9) 0%, rgba(158, 89, 34, 0.6) 25%, rgba(158, 89, 34, 0.3) 40%, rgba(158, 89, 34, 0) 60%)',
-              maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, transparent 100%)'
-            }}
-          ></div>
+      className="absolute inset-0"
+      style={{
+        background: 'linear-gradient(to right, rgba(158, 89, 34, 0.92) 0%, rgba(158, 89, 34, 0.75) 25%, rgba(158, 89, 34, 0.38) 40%, rgba(158, 89, 34, 0) 45%)',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 85%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 85%, transparent 100%)'
+      }}
+    ></div>
         </div>
         
         {/* Content container with higher z-index to appear above the shadow */}

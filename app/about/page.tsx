@@ -11,19 +11,19 @@ interface ValueSectionProps {
 // Component for sections with orange background
 function ValueSection({ title, subtitle, description }: ValueSectionProps) {
   return (
-    <div className="flex flex-col items-center px-4 md:px-8">
-      <div className="w-6 h-6 bg-black rounded-full mb-4"></div>
+    <div className="flex flex-col items-center px-4 md:px-20">
+      <div className="w-7 h-7 bg-black rounded-full mb-7"></div>
       
       {/* Fixed height container for title and subtitle */}
-      <div className="h-48 flex flex-col justify-start items-center">
-        <h2 className="text-about-us-1 md:text-about-us-1 font-light text-center text-white">{title}</h2>
-        <h3 className="text-about-us-1 md:text-about-us-1 font-bold text-center text-white">{subtitle}</h3>
+      <div className="h-44 flex flex-col justify-start items-center">
+        <h2 className="text-[2rem] md:[2rem] font-light text-center text-white">{title}</h2>
+        <h2 className="text-[2rem] md:text-[2rem] font-bold text-center text-white">{subtitle}</h2>
       </div>
       
       {/* Black line will now be aligned at the same position */}
-      <div className="w-black-dash h-2 bg-black mb-8"></div>
+      <div className="w-black-dash h-2 bg-black mb-1"></div>
       
-      <p className="mt-10 text-center text-about-us-subtitle font-light text-white max-w-md whitespace-pre-line">
+      <p className="mt-8 text-center text-about-us-subtitle font-light text-white max-w-md whitespace-pre-line">
         {description}
       </p>
     </div>
@@ -90,7 +90,7 @@ export default function AboutPage() {
         </div>
         
         <div className="relative z-10 container mx-auto">
-          <h1 className="text-3388 md:text-3388 font-light text-center text-white mb-24">ABOUT US</h1>
+          <h1 className="pt-[4.5rem] text-3388 md:text-3388 font-light text-center text-white mb-24">ABOUT US</h1>
           
           {/* Three columns for values */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">

@@ -3,14 +3,14 @@ import localFont from 'next/font/local';
 import './globals.css';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
-import HeaderSpacer from '@/components/HeaderSpacer';
 import BackgroundWrapper from '@/components/BackgroundWrapper';
+import ClientLoadingWrapper from '@/components/ClientLoadingWrapper';
 
 // Import your custom font - Aktiv Grotesk Regular
 const customFont = localFont({
   src: [
     {
-      path: '../public/fonts/AktivGroteskVFTrial-Regular.ttf', // Make sure this matches your exact filename
+      path: '../public/fonts/AktivGroteskVFTrial-Regular.ttf',
       weight: '400',
       style: 'normal',
     }
@@ -19,7 +19,6 @@ const customFont = localFont({
   variable: '--font-custom', // This creates a CSS variable you can use
 });
 
-// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -28,12 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${customFont.variable}`}>
-        <BackgroundWrapper>
-          <Header />
-          <main>
-            {children}
-          </main>
-        </BackgroundWrapper>
+        <ClientLoadingWrapper>
+          <BackgroundWrapper>
+            <Header />
+            <main>
+              {children}
+            </main>
+          </BackgroundWrapper>
+        </ClientLoadingWrapper>
       </body>
     </html>
   );

@@ -12,10 +12,27 @@ interface HeaderProps {
 export default function Header({ showProductions = true }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState<boolean>(true);
+  const [isDesktop, setIsDesktop] = useState<boolean>(false);
   const { scrollY } = useScroll();
   const prevScrollYRef = useRef<number>(0);
   const lastToggleTimeRef = useRef<number>(Date.now());
   const scrollDirectionBufferRef = useRef<number[]>([]);
+  
+  // Check if screen width is larger than 1320px
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1320);
+    };
+    
+    // Set initial value
+    checkScreenSize();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
   
   // Use effect for smoother scroll handling with debounce
   useEffect(() => {
@@ -78,8 +95,8 @@ export default function Header({ showProductions = true }: HeaderProps) {
       initial={{ y: 0 }}
     >
       {/* Changed from container with fixed margin to a responsive padding approach */}
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[3.7rem] py-4 flex flex-col xl:flex-row justify-between items-center">
-        <div className="w-full xl:w-auto flex items-center justify-between">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-[3.7rem] py-4 flex flex-col xl:flex-row justify-between items-center" style={{ flexDirection: isDesktop ? 'row' : 'column' }}>
+        <div className="w-full xl:w-auto flex items-center justify-between" style={{ width: isDesktop ? 'auto' : '100%' }}>
           <Link href="/" className="flex items-center">
             <div className="mr-3 sm:mr-4 md:mr-5">
               <Image 
@@ -101,11 +118,12 @@ export default function Header({ showProductions = true }: HeaderProps) {
             </div>
           </Link>
           
-          {/* Hamburger Menu Button - Only visible on screens smaller than 1280px */}
+          {/* Hamburger Menu Button - Only visible on screens smaller than 1320px */}
           <button 
             className="xl:hidden focus:outline-none p-2"
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            style={{ display: isDesktop ? 'none' : 'block' }}
           >
             {isMenuOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 sm:w-9 sm:h-9">
@@ -123,14 +141,19 @@ export default function Header({ showProductions = true }: HeaderProps) {
         <nav className={`
           ${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row w-full xl:w-auto 
           mt-2 items-center gap-2 sm:gap-3 md:gap-4 xl:gap-10
-        `}>
-          <Link href="/production" className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Production</Link>
-          <Link href="/clients" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Clients</Link>
-          <Link href="/about" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">About Us</Link>
-          <Link href="/team" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Our Team</Link>
-          <Link href="/services" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Services</Link>
-          <Link href="/contacts" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0">Contacts</Link>
-          <button aria-label="Search" className="text-white py-2 xl:py-0">
+        `}
+        style={{ 
+          display: isDesktop ? 'flex' : (isMenuOpen ? 'flex' : 'none'),
+          flexDirection: isDesktop ? 'row' : 'column',
+          width: isDesktop ? 'auto' : '100%'
+        }}>
+          <Link href="/production" className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>Our Production</Link>
+          <Link href="/clients" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>Our Clients</Link>
+          <Link href="/about" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>About Us</Link>
+          <Link href="/team" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>Our Team</Link>
+          <Link href="/services" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>Services</Link>
+          <Link href="/contacts" className="uppercase font-semibold tracking-wider xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>Contacts</Link>
+          <button aria-label="Search" className="text-white py-2 xl:py-0" style={{ padding: isDesktop ? '0' : '0.5rem 0' }}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>

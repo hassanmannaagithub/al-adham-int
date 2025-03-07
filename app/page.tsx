@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <div className="h-screen overflow-hidden flex flex-col">
       <section className="relative flex-1">
+        {/* Background image container */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="relative w-[112%] h-full">
             <Image
@@ -18,8 +19,35 @@ export default function Home() {
           </div>
         </div>
         
-        {/* More responsive text sizing for different screen sizes */}
-        <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-[13rem] justify-center lg:justify-start">
+        {/* Multiple overlays to achieve the exact effect */}
+        <div className="absolute inset-0 z-10">
+          {/* Base warm overlay across entire image */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundColor: 'rgba(158, 92, 33, 0.2)'
+            }}
+          ></div>
+          
+          {/* Stronger gradient from left */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(222, 122, 26, 0.7) 0%, rgba(222, 122, 26, 0.3) 30%, rgba(222, 122, 26, 0) 45%)'
+            }}
+          ></div>
+          
+          {/* Subtle dark vignette effect */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              boxShadow: 'inset 0 0 150px rgba(0, 0, 0, 0.4)'
+            }}
+          ></div>
+        </div>
+        
+        {/* Content container with higher z-index to appear above the shadow */}
+        <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-[13rem] justify-center lg:justify-start z-20">
           <div className="max-w-xl text-white text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-[6.4rem] font-light leading-tight md:leading-[4.1rem]">
               OUR VISION

@@ -104,7 +104,7 @@ export default function Home() {
         </div>
         
         {/* Content container with higher z-index to appear above the shadow */}
-        <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-[13rem] justify-center lg:justify-start z-20">
+        <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-2 sm:pt-4 md:pt-8 lg:pt-[13rem] justify-center lg:justify-start z-20">
           <div className="max-w-xl text-white text-center lg:text-left">
             <h1 className="text-[4rem] md:text-[6.4rem] font-light leading-tight md:leading-[4.1rem]">
               OUR VISION

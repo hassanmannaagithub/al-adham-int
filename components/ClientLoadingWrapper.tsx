@@ -1,4 +1,3 @@
-// components/ClientLoadingWrapper.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -23,13 +22,13 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
   }, []);
 
   const handleLoadingComplete = () => {
-    // First, animate the orange overlay away
+    // First, animate the red overlay away
     setShowOverlay(false);
     
     // Then, after the overlay animation completes, transition to the main content
     setTimeout(() => {
       setIsLoading(false);
-    }, 800); // This should match the duration of the overlay exit animation
+    }, 1500); // This should match the duration of the overlay exit animation
   };
 
   return (
@@ -51,7 +50,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
         }}
       />
       
-      {/* Orange overlay that fades away from left to right */}
+      {/* Red overlay that fades away first */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div

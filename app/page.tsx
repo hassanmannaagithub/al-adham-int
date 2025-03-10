@@ -188,17 +188,17 @@ export default function Home() {
         </div>
 
         {/* Second slide - Local video with black background */}
+        {/* Second slide - Local video with black background */}
         <div className="h-screen bg-black">
-          <div className="relative h-full flex items-center justify-center">
+          <div className="relative h-full flex items-center justify-center pt-[80px]"> {/* Add padding-top to account for header height */}
             <div className="w-full max-w-4xl px-4 sm:px-0">
               <div className="relative pb-[56.25%]"> {/* 16:9 aspect ratio */}
                 <video
                   className="absolute top-0 left-0 w-full h-full"
                   controls
-                  poster="/videos/trailer-1.png" // Optional: replace with your poster image or remove
+                  poster="/videos/trailer-1.png"
                 >
                   <source src="/videos/trailer-1.mp4" type="video/mp4" />
-                  {/* <source src="/videos/trailer-1.webm" type="video/webm" /> Optional additional format */}
                   Your browser does not support the video tag.
                 </video>
               </div>

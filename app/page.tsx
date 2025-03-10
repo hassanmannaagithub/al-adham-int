@@ -6,6 +6,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Define types for the arrow props
+interface ArrowProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+}
+
 export default function Home() {
   const sliderRef = useRef(null);
   // State to track the gradient settings based on screen size
@@ -70,8 +77,8 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Custom arrow components for the carousel
-  const CustomPrevArrow = (props) => {
+  // Custom arrow components for the carousel with proper TypeScript props
+  const CustomPrevArrow = (props: ArrowProps) => {
     const { onClick } = props;
     return (
       <button
@@ -88,7 +95,7 @@ export default function Home() {
     );
   };
 
-  const CustomNextArrow = (props) => {
+  const CustomNextArrow = (props: ArrowProps) => {
     const { onClick } = props;
     return (
       <button

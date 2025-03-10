@@ -1,6 +1,32 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+// Custom hook to detect viewport width
+function useViewportWidth() {
+  const [width, setWidth] = useState(0);
+  
+  useEffect(() => {
+    // Set initial width
+    setWidth(window.innerWidth);
+    
+    // Update width on resize
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  return width;
+}
+
+// Conditional BR component that only renders on screens >= 640px
+function ResponsiveBr() {
+  const width = useViewportWidth();
+  return width >= 640 ? <br/> : null;
+}
 
 interface ValueSectionProps {
   title: string;
@@ -17,7 +43,7 @@ function ValueSection({ title, subtitle, description, noWrap = true }: ValueSect
       {/* Title and subtitle container */}
       <div className="h-[7rem] flex flex-col mb-8">
         <h2 className="text-3xl md:text-about-us-1 font-thin text-center text-white leading-none tracking-wider">{title}</h2>
-        <h2 className={`text-3xl md:text-about-us-1 font-bold text-center text-white leading-none tracking-wider ${noWrap ? 'whitespace-nowrap' : 'whitespace-pre-line'}`}>{subtitle}</h2>
+        <h2 className={`text-3xl md:text-about-us-1 font-bold text-center text-white leading-none tracking-wider ${noWrap ? 'sm:whitespace-nowrap' : 'sm:whitespace-pre-line'} whitespace-normal`}>{subtitle}</h2>
       </div>
       
       <div className="w-black-dash h-2 bg-black mb-7"></div>
@@ -41,7 +67,7 @@ function CoreValueSection({ title, description, underlineColor = "orange-500" }:
   return (
     <div className="text-center px-4 max-w-4xl mx-auto mb-12">
       <h2 className="text-4xl md:text-5xl font-light uppercase text-white mb-3 leading-tight">{title}</h2>
-      <p className="text-white mb-4 whitespace-pre-line leading-snug">{description}</p>
+      <p className="text-white mb-4 whitespace-normal sm:whitespace-pre-line leading-snug">{description}</p>
       <div className={`w-32 h-1 bg-${underlineColor} mx-auto`}></div>
     </div>
   );
@@ -133,7 +159,7 @@ export default function AboutPage() {
                 <h2 className="text-3xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">EMPATHY</h2>
                 <p className="text-base sm:text-144 font-extralight text-white mb-1 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We are empathetic & caring</p>
                 <p className="text-base sm:text-144 font-extralight text-white mb-1 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We invest in people - not in robots.</p>
-                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We value emotional human connections. We value culture & giving back.<br/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
+                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We value emotional human connections. We value culture & giving back.<ResponsiveBr/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
               </div>
             </div>
           </section>
@@ -145,7 +171,7 @@ export default function AboutPage() {
             <div className="container mx-auto">
               <div className="text-center px-4 mx-auto max-w-[280px] sm:max-w-[85%] md:max-w-[30rem] lg:max-w-[40rem]">
                 <h2 className="text-3xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">CRAFTSMANSHIP</h2>
-                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We are a family owned business and believe that craftsmanship is everything. <br/> Crafts-manship is skill that is passed to us over generations. <br/> It's care, it's passion, it's obsession, it's magical.</p>             
+                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We are a family owned business and believe that craftsmanship is everything. <ResponsiveBr/> Crafts-manship is skill that is passed to us over generations. <ResponsiveBr/> It's care, it's passion, it's obsession, it's magical.</p>             
               </div>
             </div>
           </section>
@@ -157,7 +183,7 @@ export default function AboutPage() {
             <div className="container mx-auto">
               <div className="text-center px-4 mx-auto max-w-[280px] sm:max-w-[85%] md:max-w-[30rem] lg:max-w-[40rem]">
                 <h2 className="text-3xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">CREATIVITY</h2>
-                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We believe in sparking creativity that empowers individuals to dream, act and envision <br/>a brighter future leaving a lasting impact.<br/>Creativity is our driving force.</p>             
+                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We believe in sparking creativity that empowers individuals to dream, act and envision <ResponsiveBr/>a brighter future leaving a lasting impact.<ResponsiveBr/>Creativity is our driving force.</p>             
               </div>
             </div>
           </section>

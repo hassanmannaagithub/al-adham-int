@@ -11,6 +11,7 @@ interface ClientLoadingWrapperProps {
 const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showOverlay, setShowOverlay] = useState(true);
+  const [showBackground, setShowBackground] = useState(true);
   const [loaderPosition, setLoaderPosition] = useState('center'); // 'center' or 'bottom'
 
   useEffect(() => {
@@ -23,29 +24,34 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
   }, []);
 
   const handleLoadingComplete = () => {
-    // First, move the loader from center to bottom
+    // 1. First, move the loader from center to bottom
     setLoaderPosition('bottom');
     
-    // After loader animation completes, animate the overlay away
+    // 2. After loader animation completes, animate the red overlay away
     setTimeout(() => {
       setShowOverlay(false);
     }, 700); // Time for loader to drop
     
-    // Then, after the overlay animation completes, transition to the main content
+    // 3. After red overlay fades, fade away the background
+    setTimeout(() => {
+      setShowBackground(false);
+    }, 700 + 1500); // Loader drop (700ms) + overlay fade time (1500ms)
+    
+    // 4. Finally transition to the main content
     setTimeout(() => {
       setIsLoading(false);
-    }, 2200); // 700ms for loader drop + 1500ms for overlay fade
+    }, 700 + 1500 + 1000); // Total animation time + buffer
   };
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
-      {/* Background image that fades with the overlay */}
+      {/* Background image that stays until explicitly faded */}
       <AnimatePresence>
-        {showOverlay && (
+        {showBackground && (
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 1.0, ease: "easeInOut" }}
             style={{
               position: 'absolute',
               top: 0,
@@ -63,7 +69,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
         )}
       </AnimatePresence>
       
-      {/* Red overlay that fades away with the background */}
+      {/* Red overlay that fades away after loader drops */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
@@ -121,7 +127,6 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
           zIndex: 5,
           width: '100%',
           height: '100%',
-          visibility: isLoading ? 'hidden' : 'visible'
         }}
       >
         {children}

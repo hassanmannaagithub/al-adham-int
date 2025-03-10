@@ -32,15 +32,11 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
       setShowOverlay(false);
     }, 700); // Time for loader to drop
     
-    // 3. After red overlay fades, fade away the background
+    // 3. After red overlay fades, fade away the background AND START FADING IN CONTENT
     setTimeout(() => {
       setShowBackground(false);
+      setIsLoading(false); // Start fading in the main content at the same time
     }, 700 + 1500); // Loader drop (700ms) + overlay fade time (1500ms)
-    
-    // 4. Finally transition to the main content
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 700 + 1500 + 1000); // Total animation time + buffer
   };
 
   return (
@@ -63,7 +59,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
               backgroundPosition: 'center',
               backgroundColor: '#5f1e1d', // Fallback color
               backgroundRepeat: 'no-repeat',
-              zIndex: 1
+              zIndex: 10 // Increased z-index to be above main content initially
             }}
           />
         )}
@@ -78,7 +74,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
             transition={{ duration: 1.5, ease: "easeInOut" }}
             style={{
               position: 'absolute',
-              zIndex: 10,
+              zIndex: 20,
               top: '20%',
               left: '20%',
               right: '20%',
@@ -108,7 +104,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
             transition={{ duration: 0.7, ease: "easeInOut" }}
             style={{
               position: 'absolute',
-              zIndex: 20,
+              zIndex: 30,
               x: '-50%'
             }}
           >
@@ -121,7 +117,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
+        transition={{ duration: 1.0, ease: "easeInOut" }} // Match duration with background fade
         style={{
           position: 'relative',
           zIndex: 5,

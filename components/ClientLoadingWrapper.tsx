@@ -11,6 +11,7 @@ interface ClientLoadingWrapperProps {
 const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showOverlay, setShowOverlay] = useState(true);
+  const [loaderPosition, setLoaderPosition] = useState('center'); // 'center' or 'bottom'
 
   useEffect(() => {
     // Simulate loading time or connect to actual loading events
@@ -22,35 +23,47 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
   }, []);
 
   const handleLoadingComplete = () => {
-    // First, animate the red overlay away
-    setShowOverlay(false);
+    // First, move the loader from center to bottom
+    setLoaderPosition('bottom');
+    
+    // After loader animation completes, animate the overlay away
+    setTimeout(() => {
+      setShowOverlay(false);
+    }, 700); // Time for loader to drop
     
     // Then, after the overlay animation completes, transition to the main content
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // This should match the duration of the overlay exit animation
+    }, 2200); // 700ms for loader drop + 1500ms for overlay fade
   };
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
-      {/* Background image that stays throughout the process */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundImage: 'url(/loading/loading-background.webp)',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundColor: '#5f1e1d', // Fallback color
-          backgroundRepeat: 'no-repeat',
-          zIndex: 1
-        }}
-      />
+      {/* Background image that fades with the overlay */}
+      <AnimatePresence>
+        {showOverlay && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundImage: 'url(/loading/loading-background.webp)',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundColor: '#5f1e1d', // Fallback color
+              backgroundRepeat: 'no-repeat',
+              zIndex: 1
+            }}
+          />
+        )}
+      </AnimatePresence>
       
-      {/* Red overlay that fades away first */}
+      {/* Red overlay that fades away with the background */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
@@ -71,19 +84,26 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
         )}
       </AnimatePresence>
       
-      {/* Loader */}
+      {/* Loader with animated position */}
       <AnimatePresence>
         {isLoading && (
           <motion.div
-            initial={{ opacity: 1 }}
+            initial={{ 
+              top: '50%',
+              left: '50%',
+              x: '-50%',
+              y: '-50%'
+            }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            animate={{ 
+              top: loaderPosition === 'center' ? '50%' : '70%',
+              y: loaderPosition === 'center' ? '-50%' : '0'
+            }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
             style={{
               position: 'absolute',
               zIndex: 20,
-              bottom: '30%',
-              left: '50%',
-              transform: 'translateX(-50%)'
+              x: '-50%'
             }}
           >
             <CircleLoader size={40} color="#ffffff" />

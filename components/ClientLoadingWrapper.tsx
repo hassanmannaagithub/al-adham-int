@@ -13,6 +13,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [showBackground, setShowBackground] = useState(true);
   const [loaderPosition, setLoaderPosition] = useState('center'); // 'center' or 'bottom'
+  const [removeAllStyles, setRemoveAllStyles] = useState(false);
 
   useEffect(() => {
     // Simulate loading time or connect to actual loading events
@@ -36,9 +37,20 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
     setTimeout(() => {
       setShowBackground(false);
       setIsLoading(false); // Start fading in the main content at the same time
+      
+      // 4. After all animations complete, remove all wrapper styles
+      setTimeout(() => {
+        setRemoveAllStyles(true);
+      }, 1000); // Allow time for content to fade in
     }, 700 + 1500); // Loader drop (700ms) + overlay fade time (1500ms)
   };
 
+  // If all animations are complete and styles should be removed, just render children directly
+  if (removeAllStyles) {
+    return <>{children}</>;
+  }
+
+  // During loading and animations, use the styled wrapper
   return (
     <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
       {/* Background image that stays until explicitly faded */}
@@ -117,7 +129,7 @@ const ClientLoadingWrapper = ({ children }: ClientLoadingWrapperProps) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 1.0, ease: "easeInOut" }} // Match duration with background fade
+        transition={{ duration: 1.0, ease: "easeInOut" }}
         style={{
           position: 'relative',
           zIndex: 5,

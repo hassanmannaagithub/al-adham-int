@@ -22,8 +22,8 @@ function ValueSection({ title, subtitle, description, noWrap = true }: ValueSect
       
       <div className="w-black-dash h-2 bg-black mb-7"></div>
       
-      {/* Updated text formatting with consistent width and font size */}
-      <p className="text-base sm:text-[1.4rem] text-center font-extralight text-white w-full max-w-[85%] sm:max-w-[22rem] leading-tight tracking-wider whitespace-pre-line">
+      {/* Only applying 280px width on screens <640px */}
+      <p className="text-base sm:text-[1.4rem] text-center font-extralight text-white max-w-[280px] sm:max-w-[85%] md:max-w-[22rem] leading-tight tracking-wider whitespace-normal sm:whitespace-pre-line">
         {description}
       </p>
     </div>
@@ -126,41 +126,38 @@ export default function AboutPage() {
         </div>
         
         <div className="relative z-10 py-[6.5rem]">
-          {/* Empathy Section */}
+          {/* Empathy Section - Only applying 280px on screens <640px */}
           <section className="pb-2">
             <div className="container mx-auto">
-              {/* Updated container width to match the ValueSection's width constraints */}
-              <div className="text-center px-4 mx-auto w-full max-w-[85%] sm:max-w-[22rem] md:max-w-[30rem] lg:max-w-[40rem]">
+              <div className="text-center px-4 mx-auto max-w-[280px] sm:max-w-[85%] md:max-w-[30rem] lg:max-w-[40rem]">
                 <h2 className="text-3xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">EMPATHY</h2>
-                <p className="text-base sm:text-144 font-extralight text-white mb-1 whitespace-pre-line leading-snug tracking-widest">We are empathetic & caring</p>
-                <p className="text-base sm:text-144 font-extralight text-white mb-1 whitespace-pre-line leading-snug tracking-widest">We invest in people - not in robots.</p>
-                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-pre-line leading-snug tracking-widest">We value emotional human connections. We value culture & giving back.<br/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
+                <p className="text-base sm:text-144 font-extralight text-white mb-1 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We are empathetic & caring</p>
+                <p className="text-base sm:text-144 font-extralight text-white mb-1 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We invest in people - not in robots.</p>
+                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We value emotional human connections. We value culture & giving back.<br/>We value inclusivity & diversity.<span className='font-semibold'> We simply care.</span></p>
               </div>
             </div>
           </section>
 
           <div className="w-40 h-2 bg-orange-500 mx-auto mb-10"></div>
 
-          {/* Craftsmanship Section */}
+          {/* Craftsmanship Section - Only applying 280px on screens <640px */}
           <section >
             <div className="container mx-auto">
-              {/* Updated container width to match the ValueSection's width constraints */}
-              <div className="text-center px-4 mx-auto w-full max-w-[85%] sm:max-w-[22rem] md:max-w-[30rem] lg:max-w-[40rem]">
+              <div className="text-center px-4 mx-auto max-w-[280px] sm:max-w-[85%] md:max-w-[30rem] lg:max-w-[40rem]">
                 <h2 className="text-3xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">CRAFTSMANSHIP</h2>
-                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-pre-line leading-snug tracking-widest">We are a family owned business and believe that craftsmanship is everything. <br/> Crafts-manship is skill that is passed to us over generations. <br/> It's care, it's passion, it's obsession, it's magical.</p>             
+                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We are a family owned business and believe that craftsmanship is everything. <br/> Crafts-manship is skill that is passed to us over generations. <br/> It's care, it's passion, it's obsession, it's magical.</p>             
               </div>
             </div>
           </section>
           
           <div className="w-36 h-2 bg-orange-500 mx-auto mb-5"></div>
 
-          {/* Creativity Section */}
+          {/* Creativity Section - Only applying 280px on screens <640px */}
           <section>
             <div className="container mx-auto">
-              {/* Updated container width to match the ValueSection's width constraints */}
-              <div className="text-center px-4 mx-auto w-full max-w-[85%] sm:max-w-[22rem] md:max-w-[30rem] lg:max-w-[40rem]">
+              <div className="text-center px-4 mx-auto max-w-[280px] sm:max-w-[85%] md:max-w-[30rem] lg:max-w-[40rem]">
                 <h2 className="text-3xl md:text-65 font-extralight uppercase text-white leading-snug tracking-widest">CREATIVITY</h2>
-                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-pre-line leading-snug tracking-widest">We believe in sparking creativity that empowers individuals to dream, act and envision <br/>a brighter future leaving a lasting impact.<br/>Creativity is our driving force.</p>             
+                <p className="text-base sm:text-144 font-extralight text-white mb-8 whitespace-normal sm:whitespace-pre-line leading-snug tracking-widest">We believe in sparking creativity that empowers individuals to dream, act and envision <br/>a brighter future leaving a lasting impact.<br/>Creativity is our driving force.</p>             
               </div>
             </div>
           </section>

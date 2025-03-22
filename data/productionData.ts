@@ -20,7 +20,7 @@ export interface Production {
     {
       id: 1,
       title: "SOUQ AL HARIR 1",
-      image: "/souq-al-harir-1.webp",
+      image: "/production/souq-al-harir-1.webp",
       alt: "Souq Al Harir 1",
       link: "/production/souq-al-harir-1",
       genres: ['SOCIAL', 'DRAMA', 'ROMANTIC'],
@@ -33,7 +33,7 @@ export interface Production {
     {
       id: 2,
       title: "AGHMED AYNAYK",
-      image: "/aghmed-aynayk.webp",
+      image: "/production/aghmed-aynayk.webp",
       alt: "Aghmed Aynayk",
       link: "/production/aghmed-aynayk",
       genres: ['DRAMA', 'FAMILY'],
@@ -46,7 +46,7 @@ export interface Production {
     {
       id: 3,
       title: "AL ZAEEM",
-      image: "/al-zaeem.webp",
+      image: "/production/al-zaeem.webp",
       alt: "Al Zaeem",
       link: "/production/al-zaeem",
       genres: ['POLITICAL', 'DRAMA', 'THRILLER'],
@@ -59,7 +59,7 @@ export interface Production {
     {
       id: 4,
       title: "HAMAM CHAMEE",
-      image: "/hamam-chamee.webp",
+      image: "/production/hamam-chamee.webp",
       alt: "Hamam Chamee",
       link: "/production/hamam-chamee",
       genres: ['HISTORICAL', 'COMEDY', 'DRAMA'],
@@ -68,7 +68,7 @@ export interface Production {
       episodeCount: 32,
       arabicTitle: 'حمام شامي',
       year: '2020'
-    }
+    },
   ];
   
   // Function to get all productions

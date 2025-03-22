@@ -21,14 +21,12 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
+        className="absolute -left-16 top-[107px] -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        <div className="w-12 h-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-10 h-10">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M16 20l-8-8 8-8" />
+        </svg>
       </button>
     );
   };
@@ -37,14 +35,12 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
+        className="absolute -right-16 top-[107px] -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        <div className="w-12 h-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-10 h-10">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M8 4l8 8-8 8" />
+        </svg>
       </button>
     );
   };
@@ -84,7 +80,7 @@ export default function ProductionPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-16 pb-16 bg-[#ed7e0c]">
       {/* Production Section with background image and orange overlay */}
       <section className="relative min-h-screen pt-28">
         {/* Background image */}
@@ -109,12 +105,12 @@ export default function ProductionPage() {
         
         {/* Productions Carousel */}
         <div className="container mx-auto px-4 relative z-10 mt-12 md:mt-24 pb-16">
-          <div className="production-slider">
+          <div className="production-slider relative mx-16">
             <Slider {...settings}>
               {productions.map((production) => (
                 <div key={production.id} className="px-2 md:px-4">
                   <div className="mb-4">
-                    <div className="relative aspect-[4/5] overflow-hidden">
+                    <div className="relative w-full max-w-[315px] h-[215px] mx-auto overflow-hidden">
                       <Image
                         src={production.image}
                         alt={production.alt}

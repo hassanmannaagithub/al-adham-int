@@ -113,7 +113,7 @@ export default function ProductionPage() {
                         src={production.image}
                         alt={production.alt}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                       />
                     </div>
                     <h3 className="text-white font-bold text-xl md:text-2xl mt-4">{production.title}</h3>

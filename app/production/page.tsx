@@ -80,20 +80,18 @@ export default function ProductionPage() {
   };
 
   return (
-    <div className="min-h-screen pt-16 pb-16 bg-[#ed7e0c]">
-      {/* Production Section with background image and orange overlay */}
-      <section className="relative min-h-screen pt-28">
+    <div className="h-screen overflow-hidden pt-16 pb-16 bg-[#e17910]">
+      {/* Production Section with background image */}
+      <section className="relative h-[calc(100vh-64px)] pt-28">
         {/* Background image */}
-        <div className="absolute inset-0 z-0 bg-[#ed7e0c]">
+        <div className="absolute inset-0 z-0">
           <Image
-            src="/production-background.webp" 
+            src="/production/production-bg.webp" 
             alt="Production background"
             fill
             className="object-cover"
             priority
           />
-          {/* Orange overlay */}
-          <div className="absolute inset-0 bg-[#ed7e0c] opacity-80"></div>
         </div>
         
         {/* Title section */}
@@ -120,7 +118,7 @@ export default function ProductionPage() {
                     </div>
                     <h3 className="text-white font-bold text-xl md:text-2xl mt-4">{production.title}</h3>
                     <Link href={production.link}>
-                      <div className="inline-block bg-[#5f1e1d] text-white text-sm font-semibold py-1 px-4 mt-2 hover:bg-[#4a1816] transition-colors">
+                      <div className="inline-block bg-[#5f1e1d] text-white text-sm font-light py-1 px-2 mt-2 hover:bg-[#4a1816] transition-colors rounded-md">
                         KNOW MORE
                       </div>
                     </Link>

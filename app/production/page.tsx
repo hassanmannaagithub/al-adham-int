@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { productions } from '@/data/productionData';
 
 // Define types for the arrow props
 interface ArrowProps {
@@ -14,48 +15,7 @@ interface ArrowProps {
   onClick?: () => void;
 }
 
-// Define types for production data
-interface Production {
-  id: number;
-  title: string;
-  image: string;
-  alt: string;
-  link: string;
-}
-
 export default function ProductionPage() {
-  // Production data
-  const productions: Production[] = [
-    {
-      id: 1,
-      title: "SOUQ AL HARIR 1",
-      image: "/souq-al-harir-1.webp",
-      alt: "Souq Al Harir 1",
-      link: "/production/souq-al-harir-1"
-    },
-    {
-      id: 2,
-      title: "AGHMED AYNAYK",
-      image: "/aghmed-aynayk.webp",
-      alt: "Aghmed Aynayk",
-      link: "/production/aghmed-aynayk"
-    },
-    {
-      id: 3,
-      title: "AL ZAEEM",
-      image: "/al-zaeem.webp",
-      alt: "Al Zaeem",
-      link: "/production/al-zaeem"
-    },
-    {
-      id: 4,
-      title: "HAMAM CHAMEE",
-      image: "/hamam-chamee.webp",
-      alt: "Hamam Chamee",
-      link: "/production/hamam-chamee"
-    }
-  ];
-
   // Custom arrow components for the carousel with proper TypeScript props
   const CustomPrevArrow = (props: ArrowProps) => {
     const { onClick } = props;
@@ -147,7 +107,7 @@ export default function ProductionPage() {
           </h1>
         </div>
         
-        {/* Productions Grid/Carousel */}
+        {/* Productions Carousel */}
         <div className="container mx-auto px-4 relative z-10 mt-12 md:mt-24 pb-16">
           <div className="production-slider">
             <Slider {...settings}>

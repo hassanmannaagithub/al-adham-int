@@ -40,18 +40,18 @@ export default function ProductionDetailPage() {
   }
 
   return (
-    <div className="min-h-screen pt-16 pb-16 bg-[#ed7e0c] text-white">
+    <div className="min-h-screen pt-24 pb-16 bg-[#ed7e0c] text-white">
       <div className="pt-28 pb-16">
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className="container mx-auto">
           <div className="flex flex-col md:flex-row">
             {/* Left side - Production Information */}
             <div className="md:w-1/2 pr-0 md:pr-8 lg:pr-16">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 text-[#5f1f1e]">{production.title}</h1>
+              <h1 className="text-4xl font-bold mb-28 text-[#5f1f1e] tracking-widest">{production.title}</h1>
               
               {/* Genres with dot separators */}
               {production.genres && (
-                <div className="mb-10">
-                  <p className="text-lg md:text-xl">
+                <div className="mb-14">
+                  <p className="text-lg md:text-2xl tracking-widest">
                     {production.genres.map((genre: string, index: number) => (
                       <span key={genre}>
                         {genre}
@@ -64,15 +64,15 @@ export default function ProductionDetailPage() {
               
               {/* Description */}
               {production.description && (
-                <p className="text-lg md:text-xl mb-10">
+                <p className="text-lg md:text-2xl mb-10 tracking-widest">
                   {production.description}
                 </p>
               )}
               
               {/* Stars */}
               {production.stars && (
-                <div className="mb-10">
-                  <p className="text-lg md:text-xl text-[#5f1f1e]">
+                <div className="mb-36">
+                  <p className="text-lg md:text-2xl text-[#5f1f1e] tracking-widest">
                     <span className="font-bold">Stars:</span> {production.stars.join(', ')}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export default function ProductionDetailPage() {
               {/* Episodes */}
               {production.episodeCount && (
                 <div>
-                  <p className="text-lg md:text-xl font-bold">
+                  <p className="text-lg md:text-2xl font-bold tracking-widest">
                     EPISODES ({production.episodeCount})
                   </p>
                 </div>

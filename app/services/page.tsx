@@ -22,10 +22,10 @@ export default function ServicesPage() {
         <div className="flex justify-center mb-1">
           <div className="w-7 h-7 rounded-full bg-[#7b2a26]"></div>
         </div>
-        <h2 className="text-2xl md:text-4xl text-center uppercase font-bold text-[#222222]">
+        <h2 className="text-2xl md:text-4xl text-center uppercase font-medium text-[#222222]">
           CONCEPT DEVELOPMENT
         </h2>
-        <h2 className="text-2xl md:text-4xl text-center uppercase font-bold text-[#222222] mb-4">
+        <h2 className="text-2xl md:text-4xl text-center uppercase font-medium text-[#222222] mb-4">
           & SCRIPTWRITING
         </h2>
         <h3 className="text-2xl text-center uppercase font-extrabold text-[#7b2a26] mb-3">
@@ -45,77 +45,75 @@ export default function ServicesPage() {
       </div>
 
       {/* Service 2: Pre-Production Planning - Full width background */}
-      <div className="w-full bg-[#dcd3bf] pt-16">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex justify-center mb-2">
-            <div className="w-3 h-3 rounded-full bg-[#7b2a26]"></div>
-          </div>
-          <h2 className="text-2xl md:text-3xl text-center uppercase font-bold text-[#222222] mb-6">
-            PRE-PRODUCTION PLANNING
-          </h2>
-          <h3 className="text-xl text-center uppercase font-medium text-[#7b2a26] mb-4">
-            SETTING THE STAGE FOR SUCCESS
-          </h3>
-          <h4 className="text-lg text-center uppercase mb-5">
-            OUR PRE-PRODUCTION SERVICES INCLUDE:
-          </h4>
-          <div className="text-center space-y-2">
-            <p className="text-[#222222] text-lg">Casting & Talent Acquisition</p>
-            <p className="text-[#222222] text-lg">Location Scouting & Set Design</p>
-            <p className="text-[#222222] text-lg">Budgeting & Scheduling</p>
-            <p className="text-[#222222] text-lg">Production Design & Costume Styling</p>
-          </div>
-          <div className="flex justify-center mt-8">
-            <div className="w-24 h-1 bg-[#7b2a26]"></div>
-          </div>
+      <div className="pt-20 tracking-widest bg-[#dcd3bf]">
+        <div className="flex justify-center mb-2">
+          <div className="w-7 h-7 rounded-full bg-[#7b2a26]"></div>
+        </div>
+        <h2 className="text-2xl md:text-4xl text-center uppercase font-medium text-[#222222] mb-4">
+          PRE-PRODUCTION PLANNING
+        </h2>
+        <h3 className="text-2xl text-center uppercase font-extrabold text-[#7b2a26] mb-3">
+          SETTING THE STAGE FOR SUCCESS
+        </h3>
+        <h4 className="text-2xl text-center font-extrabold uppercase mb-10">
+          OUR PRE-PRODUCTION SERVICES INCLUDE:
+        </h4>
+        <div className="text-center space-y-2">
+          <p className="text-[#222222] text-2xl">Casting & Talent Acquisition</p>
+          <p className="text-[#222222] text-2xl">Location Scouting & Set Design</p>
+          <p className="text-[#222222] text-2xl">Budgeting & Scheduling</p>
+          <p className="text-[#222222] text-2xl">Production Design & Costume Styling</p>
+        </div>
+        <div className="flex justify-center mt-20">
+          <div className="w-36 h-3 bg-[#7b2a26]"></div>
         </div>
       </div>
 
-      <div className="pt-16">
-        <div className="flex justify-center mb-2">
-          <div className="w-3 h-3 rounded-full bg-[#7b2a26]"></div>
+      <div className="pt-28 tracking-widest">
+        <div className="flex justify-center mb-6">
+          <div className="w-7 h-7 rounded-full bg-[#7b2a26]"></div>
         </div>
-        <h2 className="text-2xl md:text-3xl text-center uppercase font-bold text-[#222222] mb-6">
+        <h2 className="text-2xl md:text-4xl text-center uppercase font-medium text-[#222222] mb-5">
           PRODUCTION & FILMING
         </h2>
-        <h3 className="text-xl text-center uppercase font-medium text-[#7b2a26] mb-4">
+        <h3 className="text-2xl text-center uppercase font-extrabold text-[#7b2a26] mb-4">
           BRINGING STORIES TO LIFE
         </h3>
-        <h4 className="text-lg text-center uppercase mb-5">
+        <h4 className="text-2xl text-center font-extrabold uppercase mb-8">
           OUR PRODUCTION SERVICES INCLUDE:
         </h4>
-        <div className="text-center space-y-2">
-          <p className="text-[#222222] text-lg">Cinematic Filming & Directing</p>
-          <p className="text-[#222222] text-lg">High-Quality Cinematography</p>
-          <p className="text-[#222222] text-lg">Production Management</p>
+        <div className="text-center space-y-1">
+          <p className="text-[#222222] text-2xl">Cinematic Filming & Directing</p>
+          <p className="text-[#222222] text-2xl">High-Quality Cinematography</p>
+          <p className="text-[#222222] text-2xl">Production Management</p>
         </div>
-        <div className="flex justify-center mt-8">
-          <div className="w-24 h-1 bg-[#7b2a26]"></div>
+        <div className="flex justify-center mt-24">
+          <div className="w-36 h-3 bg-[#7b2a26]"></div>
         </div>
       </div>
 
       {/* Service 4: Post-Production Mastery */}
-      <div className="bg-[#dcd3bf] pt-16">
-        <div className="flex justify-center mb-2">
-          <div className="w-5 h-5 rounded-full bg-[#7b2a26]"></div>
+      <div className="pt-24 tracking-widest bg-[#dcd3bf]">
+        <div className="flex justify-center mb-4">
+          <div className="w-7 h-7 rounded-full bg-[#7b2a26]"></div>
         </div>
-        <h2 className="text-2xl md:text-3xl text-center uppercase font-bold text-[#222222] mb-6">
+        <h2 className="text-2xl md:text-4xl text-center uppercase font-medium text-[#222222] mb-4">
           POST-PRODUCTION MASTERY
         </h2>
-        <h3 className="text-xl text-center uppercase font-medium text-[#7b2a26] mb-4">
+        <h3 className="text-2xl text-center uppercase font-extrabold text-[#7b2a26] mb-3">
           PERFECTION EVERY FRAME
         </h3>
-        <h4 className="text-lg text-center uppercase mb-5">
+        <h4 className="text-2xl text-center font-extrabold uppercase mb-10">
           WE PROVIDE:
         </h4>
-        <div className="text-center space-y-2">
-          <p className="text-[#222222] text-lg">Video Editing & Color Grading</p>
-          <p className="text-[#222222] text-lg">Sound Design & Music Scoring</p>
-          <p className="text-[#222222] text-lg">Visual Effects (VFX) & CGI</p>
-          <p className="text-[#222222] text-lg">Subtitling & Localization</p>
+        <div className="text-center space-y-1">
+          <p className="text-[#222222] text-2xl">Video Editing & Color Grading</p>
+          <p className="text-[#222222] text-2xl">Sound Design & Music Scoring</p>
+          <p className="text-[#222222] text-2xl">Visual Effects (VFX) & CGI</p>
+          <p className="text-[#222222] text-2xl">Subtitling & Localization</p>
         </div>
-        <div className="flex justify-center mt-8">
-          <div className="w-24 h-1 bg-[#7b2a26]"></div>
+        <div className="flex justify-center mt-12">
+          <div className="w-36 h-3 bg-[#7b2a26]"></div>
         </div>
       </div>
     </div>

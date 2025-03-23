@@ -21,7 +21,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute -left-2 sm:-left-4 md:-left-8 lg:-left-12 top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
+        className="absolute left-[-4vw] sm:left-[-3vw] md:left-[-2.5vw] lg:left-[-2vw] top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
@@ -35,7 +35,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute -right-2 sm:-right-4 md:-right-8 lg:-right-12 top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
+        className="absolute right-[-4vw] sm:right-[-3vw] md:right-[-2.5vw] lg:right-[-2vw] top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">

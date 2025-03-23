@@ -21,7 +21,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute left-0 top-[25%] -translate-x-full z-30 
+        className="absolute left-0 top-[30%] -translate-y-1/2 -translate-x-full z-30 
                    w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
@@ -36,7 +36,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute right-0 top-[25%] translate-x-full z-30 
+        className="absolute right-0 top-[30%] -translate-y-1/2 translate-x-full z-30 
                    w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
@@ -84,7 +84,7 @@ export default function ProductionPage() {
   return (
     <div className="min-h-screen overflow-x-hidden pt-16 bg-[#e17910]">
       {/* Production Section with background image */}
-      <section className="relative min-h-[calc(100vh-64px)] pt-20 md:pt-28 pb-16">
+      <section className="relative flex flex-col justify-center min-h-[calc(100vh-64px)]">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -98,14 +98,14 @@ export default function ProductionPage() {
         </div>
         
         {/* Title section */}
-        <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-3xl sm:text-4xl md:text-super-title font-light text-center text-white mt-10 sm:mt-16 md:mt-20 tracking-widest">
+        <div className="container mx-auto px-4 relative z-10 mb-8 sm:mb-12 md:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-super-title font-light text-center text-white tracking-widest">
             OUR PRODUCTION
           </h1>
         </div>
         
         {/* Productions Carousel - Note the added px-8 md:px-12 class for arrow spacing */}
-        <div className="container max-w-[98%] xl:max-w-[95%] 2xl:max-w-[2000px] mx-auto relative z-10 mt-8 sm:mt-12 md:mt-24 pb-8 md:pb-16">
+        <div className="container max-w-[98%] xl:max-w-[95%] 2xl:max-w-[2000px] mx-auto relative z-10">
           <div className="production-slider relative px-8 md:px-12">
             <Slider {...settings}>
               {productions.map((production) => (

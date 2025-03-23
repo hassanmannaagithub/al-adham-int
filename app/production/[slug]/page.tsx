@@ -45,8 +45,8 @@ export default function ProductionDetailPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row">
             {/* Image - First on mobile, second on md+ */}
-            <div className="w-full lg:w-3/5 order-first lg:order-last mb-8 lg:mb-0">
-              <div className="relative aspect-[4/5] w-full max-w-2xl mx-auto lg:ml-auto" style={{height: "auto", maxHeight: "700px"}}>
+            <div className="w-full lg:w-3/5 order-first lg:order-last mb-8 lg:mb-0 lg:flex lg:justify-end">
+              <div className="relative aspect-[4/5] w-full max-w-2xl mx-auto lg:mr-0 lg:ml-auto" style={{height: "auto", maxHeight: "700px"}}>
                 <Image
                   src={production.image}
                   alt={production.alt || production.title}

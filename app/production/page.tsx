@@ -21,7 +21,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute -left-4 sm:-left-8 md:-left-12 lg:-left-16 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
+        className="absolute -left-2 sm:-left-4 md:-left-8 lg:-left-12 top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
@@ -35,7 +35,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute -right-4 sm:-right-8 md:-right-12 lg:-right-16 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
+        className="absolute -right-2 sm:-right-4 md:-right-8 lg:-right-12 top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
@@ -50,7 +50,7 @@ export default function ProductionPage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 4, // Set back to 4 as requested
     slidesToScroll: 1,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
@@ -58,7 +58,7 @@ export default function ProductionPage() {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3, // Set back to 3
           slidesToScroll: 1
         }
       },
@@ -103,18 +103,18 @@ export default function ProductionPage() {
         </div>
         
         {/* Productions Carousel */}
-        <div className="container mx-auto px-4 relative z-10 mt-8 sm:mt-12 md:mt-24 pb-8 md:pb-16">
-          <div className="production-slider relative mx-6 sm:mx-10 md:mx-16">
+        <div className="container max-w-[98%] xl:max-w-[95%] 2xl:max-w-[2000px] mx-auto relative z-10 mt-8 sm:mt-12 md:mt-24 pb-8 md:pb-16">
+          <div className="production-slider relative mx-2 sm:mx-4 md:mx-6">
             <Slider {...settings}>
               {productions.map((production) => (
-                <div key={production.id} className="px-2 md:px-4">
+                <div key={production.id} className="px-1">
                   <div className="mb-4">
-                    <div className="relative w-full aspect-[1.47/1] mx-auto overflow-hidden rounded-md">
+                    <div className="relative w-full aspect-[3/2] mx-auto overflow-hidden rounded-md">
                       <Image
                         src={production.image}
                         alt={production.alt}
                         fill
-                        sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 25vw"
+                        sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 22vw"
                         className="object-cover object-center"
                       />
                     </div>

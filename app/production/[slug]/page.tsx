@@ -10,7 +10,7 @@ export default function ProductionDetailPage() {
   const slug = params.slug as string;
   const [production, setProduction] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
     setLoading(true);
     
@@ -21,7 +21,7 @@ export default function ProductionDetailPage() {
       setLoading(false);
     }, 500);
   }, [slug]);
-
+  
   if (loading) {
     return (
       <div className="min-h-screen pt-28 flex items-center justify-center bg-[#ed7e0c]">
@@ -29,7 +29,7 @@ export default function ProductionDetailPage() {
       </div>
     );
   }
-
+  
   if (!production) {
     return (
       <div className="min-h-screen pt-28 flex flex-col items-center justify-center bg-[#ed7e0c] text-white">
@@ -38,14 +38,14 @@ export default function ProductionDetailPage() {
       </div>
     );
   }
-
+  
   return (
     <div className="min-h-screen pt-24 pb-16 bg-[#ed7e0c] text-white">
       <div className="pt-28 pb-16">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row">
             {/* Left side - Production Information */}
-            <div className="md:w-1/2 pr-0 md:pr-8 lg:pr-16">
+            <div className="md:w-2/5 pr-0 md:pr-8 lg:pr-16">
               <h1 className="text-4xl font-bold mb-28 text-[#5f1f1e] tracking-widest">{production.title}</h1>
               
               {/* Genres with dot separators */}
@@ -64,14 +64,14 @@ export default function ProductionDetailPage() {
               
               {/* Description */}
               {production.description && (
-                <p className="text-lg md:text-2xl mb-10 tracking-widest">
+                <p className="text-lg md:text-xl mb-6 tracking-widest">
                   {production.description}
                 </p>
               )}
               
               {/* Stars */}
               {production.stars && (
-                <div className="mb-36">
+                <div className="mb-28">
                   <p className="text-lg md:text-2xl text-[#5f1f1e] tracking-widest">
                     <span className="font-bold">Stars:</span> {production.stars.join(', ')}
                   </p>
@@ -89,10 +89,10 @@ export default function ProductionDetailPage() {
             </div>
             
             {/* Right side - Production Image */}
-            <div className="md:w-1/2 mt-10 md:mt-0">
+            <div className="md:w-3/5 mt-10 md:mt-0">
               <div className="relative aspect-auto h-[500px] w-full">
                 <Image 
-                  src={production.image} 
+                  src={production.image}
                   alt={production.alt || production.title}
                   fill
                   className="object-contain"

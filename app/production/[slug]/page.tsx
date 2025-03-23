@@ -42,40 +42,53 @@ export default function ProductionDetailPage() {
   return (
     <div className="min-h-screen pt-24 pb-16 bg-[#ed7e0c] text-white">
       <div className="pt-28 pb-16">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row">
-            {/* Left side - Production Information */}
-            <div className="md:w-2/5 py-10 pr-16">
-              <h1 className="text-4xl font-bold mb-24 text-[#5f1f1e] tracking-widest">{production.title}</h1>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row">
+            {/* Image - First on mobile, second on md+ */}
+            <div className="w-full lg:w-3/5 order-first lg:order-last mb-8 lg:mb-0">
+              <div className="relative aspect-[4/5] w-full max-w-2xl mx-auto lg:ml-auto" style={{height: "auto", maxHeight: "700px"}}>
+                <Image
+                  src={production.image}
+                  alt={production.alt || production.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            
+            {/* Production Information - Second on mobile, first on md+ */}
+            <div className="w-full lg:w-2/5 order-last lg:order-first py-6 lg:py-10 lg:pr-16 text-center lg:text-left">
+              <h1 className="text-4xl font-bold mb-12 lg:mb-24 text-[#5f1f1e] tracking-widest">{production.title}</h1>
               
               {/* Genres with dot separators */}
               {production.genres && (
-              <div className="mb-14">
-              <p className="text-lg md:text-2xl tracking-widest">
-                {production.genres.map((genre: string, index: number) => (
-                  <span key={genre}>
-                    {genre}
-                    {index < production.genres.length - 1 && 
-                       <span className="mx-3 inline-flex items-center">
-                        <span className="inline-block w-4 h-4 rounded-full bg-[#5f1f1e]"></span>
+                <div className="mb-8 lg:mb-14">
+                  <p className="text-lg lg:text-2xl tracking-widest">
+                    {production.genres.map((genre: string, index: number) => (
+                      <span key={genre}>
+                        {genre}
+                        {index < production.genres.length - 1 && 
+                          <span className="mx-3 inline-flex items-center">
+                            <span className="inline-block w-4 h-4 rounded-full bg-[#5f1f1e]"></span>
+                          </span>
+                        }
                       </span>
-                    }
-                  </span>
-                ))}
-              </p>
-            </div>
+                    ))}
+                  </p>
+                </div>
               )}
               
               {/* Description */}
               {production.description && (
-                <p className="text-lg md:text-xl mb-6 tracking-widest">
+                <p className="text-lg lg:text-xl mb-6 tracking-widest">
                   {production.description}
                 </p>
               )}
               
               {/* Stars */}
               {production.stars && (
-                <div className="mb-28">
+                <div className="mb-12 lg:mb-28">
                   <p className="text-lg md:text-2xl text-[#5f1f1e] tracking-widest">
                     <span className="font-bold">Stars:</span> {production.stars.join(', ')}
                   </p>
@@ -90,19 +103,6 @@ export default function ProductionDetailPage() {
                   </p>
                 </div>
               )}
-            </div>
-            
-            {/* Right side - Production Image */}
-            <div className="md:w-3/5 mt-10 md:mt-0">
-              <div className="relative aspect-[4/5] w-full max-w-2xl ml-auto" style={{height: "700px"}}>
-                <Image
-                  src={production.image}
-                  alt={production.alt || production.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
             </div>
           </div>
         </div>

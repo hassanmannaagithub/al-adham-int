@@ -45,7 +45,7 @@ export default function ProductionDetailPage() {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row">
             {/* Left side - Production Information */}
-            <div className="md:w-2/5 pr-0 md:pr-8 lg:pr-16">
+            <div className="md:w-2/5 py-10 pr-16">
               <h1 className="text-4xl font-bold mb-24 text-[#5f1f1e] tracking-widest">{production.title}</h1>
               
               {/* Genres with dot separators */}
@@ -56,7 +56,7 @@ export default function ProductionDetailPage() {
                   <span key={genre}>
                     {genre}
                     {index < production.genres.length - 1 && 
-                      <span className="mx-3 inline-flex items-center">
+                       <span className="mx-3 inline-flex items-center">
                         <span className="inline-block w-4 h-4 rounded-full bg-[#5f1f1e]"></span>
                       </span>
                     }
@@ -94,12 +94,12 @@ export default function ProductionDetailPage() {
             
             {/* Right side - Production Image */}
             <div className="md:w-3/5 mt-10 md:mt-0">
-              <div className="relative aspect-auto h-full w-full">
-                <Image 
+              <div className="relative aspect-[4/5] w-full max-w-2xl ml-auto" style={{height: "700px"}}>
+                <Image
                   src={production.image}
                   alt={production.alt || production.title}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   priority
                 />
               </div>

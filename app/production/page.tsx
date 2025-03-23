@@ -21,7 +21,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute left-0 top-[30%] -translate-y-1/2 -translate-x-full z-30 
+        className="absolute left-0 top-[40%] sm:top-[30%] -translate-y-1/2 -translate-x-full z-30 
                    w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
@@ -36,7 +36,7 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute right-0 top-[30%] -translate-y-1/2 translate-x-full z-30 
+        className="absolute right-0 top-[40%] sm:top-[30%] -translate-y-1/2 translate-x-full z-30 
                    w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >

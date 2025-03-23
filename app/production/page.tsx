@@ -21,10 +21,10 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute -left-16 top-[107px] -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
+        className="absolute -left-4 sm:-left-8 md:-left-12 lg:-left-16 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-10 h-10">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
           <path strokeLinecap="round" strokeLinejoin="round" d="M16 20l-8-8 8-8" />
         </svg>
       </button>
@@ -35,10 +35,10 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute -right-16 top-[107px] -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
+        className="absolute -right-4 sm:-right-8 md:-right-12 lg:-right-16 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-10 h-10">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
           <path strokeLinecap="round" strokeLinejoin="round" d="M8 4l8 8-8 8" />
         </svg>
       </button>
@@ -63,7 +63,7 @@ export default function ProductionPage() {
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1
@@ -80,15 +80,16 @@ export default function ProductionPage() {
   };
 
   return (
-    <div className="h-screen overflow-hidden pt-16 pb-16 bg-[#e17910]">
+    <div className="min-h-screen overflow-x-hidden pt-16 bg-[#e17910]">
       {/* Production Section with background image */}
-      <section className="relative h-[calc(100vh-64px)] pt-28">
+      <section className="relative min-h-[calc(100vh-64px)] pt-20 md:pt-28 pb-16">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/production/production-bg.webp" 
             alt="Production background"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -96,29 +97,30 @@ export default function ProductionPage() {
         
         {/* Title section */}
         <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-super-title font-light text-center text-white mt-16 md:mt-24 tracking-widest">
+          <h1 className="text-3xl sm:text-4xl md:text-super-title font-light text-center text-white mt-10 sm:mt-16 md:mt-20 tracking-widest">
             OUR PRODUCTION
           </h1>
         </div>
         
         {/* Productions Carousel */}
-        <div className="container mx-auto px-4 relative z-10 mt-12 md:mt-24 pb-16">
-          <div className="production-slider relative mx-16">
+        <div className="container mx-auto px-4 relative z-10 mt-8 sm:mt-12 md:mt-24 pb-8 md:pb-16">
+          <div className="production-slider relative mx-6 sm:mx-10 md:mx-16">
             <Slider {...settings}>
               {productions.map((production) => (
                 <div key={production.id} className="px-2 md:px-4">
                   <div className="mb-4">
-                    <div className="relative w-full max-w-[315px] h-[215px] mx-auto overflow-hidden">
+                    <div className="relative w-full aspect-[1.47/1] mx-auto overflow-hidden rounded-md">
                       <Image
                         src={production.image}
                         alt={production.alt}
                         fill
-                        className="object-contain"
+                        sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 25vw"
+                        className="object-cover object-center"
                       />
                     </div>
-                    <h3 className="text-white font-bold text-xl md:text-2xl mt-4">{production.title}</h3>
+                    <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl mt-3 md:mt-4 line-clamp-1">{production.title}</h3>
                     <Link href={production.link}>
-                      <div className="inline-block bg-[#5f1e1d] text-white text-sm font-light py-1 px-2 mt-2 hover:bg-[#4a1816] transition-colors rounded-md">
+                      <div className="inline-block bg-[#5f1e1d] text-white text-xs sm:text-sm font-light py-1 px-2 mt-2 hover:bg-[#4a1816] transition-colors rounded-md">
                         KNOW MORE
                       </div>
                     </Link>

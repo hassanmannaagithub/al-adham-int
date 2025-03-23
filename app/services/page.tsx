@@ -93,8 +93,7 @@ export default function ServicesPage() {
       </div>
 
       {/* Service 4: Post-Production Mastery */}
-      <div className="relative pt-24 pb-10 tracking-widest bg-[url('/services/services-bg.webp')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-[#dcd3bf] opacity-70"></div>
+      <div className="relative pt-24 pb-10 tracking-widest bg-[url('/services/services-bg.webp')] bg-cover bg-bottom">        <div className="absolute inset-0 bg-[#dcd3bf] opacity-70"></div>
         <div className="relative flex justify-center mb-4">
           <div className="w-7 h-7 rounded-full bg-[#7b2a26]"></div>
         </div>

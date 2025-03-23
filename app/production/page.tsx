@@ -21,11 +21,12 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute left-[-4vw] sm:left-[-3vw] md:left-[-2.5vw] lg:left-[-2vw] top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
+        className="absolute left-0 top-[25%] -translate-x-full z-30 
+                   w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16 20l-8-8 8-8" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2} className="w-6 h-6 md:w-7 md:h-7">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
     );
@@ -35,11 +36,12 @@ export default function ProductionPage() {
     const { onClick } = props;
     return (
       <button
-        className="absolute right-[-4vw] sm:right-[-3vw] md:right-[-2.5vw] lg:right-[-2vw] top-[20%] sm:top-[22%] md:top-[25%] -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center"
+        className="absolute right-0 top-[25%] translate-x-full z-30 
+                   w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={1.5} className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8 4l8 8-8 8" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2} className="w-6 h-6 md:w-7 md:h-7">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
     );
@@ -50,7 +52,7 @@ export default function ProductionPage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4, // Set back to 4 as requested
+    slidesToShow: 4,
     slidesToScroll: 1,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
@@ -58,7 +60,7 @@ export default function ProductionPage() {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 3, // Set back to 3
+          slidesToShow: 3,
           slidesToScroll: 1
         }
       },
@@ -102,9 +104,9 @@ export default function ProductionPage() {
           </h1>
         </div>
         
-        {/* Productions Carousel */}
+        {/* Productions Carousel - Note the added px-8 md:px-12 class for arrow spacing */}
         <div className="container max-w-[98%] xl:max-w-[95%] 2xl:max-w-[2000px] mx-auto relative z-10 mt-8 sm:mt-12 md:mt-24 pb-8 md:pb-16">
-          <div className="production-slider relative mx-2 sm:mx-4 md:mx-6">
+          <div className="production-slider relative px-8 md:px-12">
             <Slider {...settings}>
               {productions.map((production) => (
                 <div key={production.id} className="px-1">

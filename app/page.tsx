@@ -2,9 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import Slider from "react-slick";
+import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
+// Dynamically import Slider
+const DynamicSlider = dynamic(() => import("react-slick"), {
+  ssr: false,
+  loading: () => <div className="h-screen bg-black" />,
+}) as typeof Slider;
 
 // Define types for the arrow props
 interface ArrowProps {
@@ -151,7 +158,7 @@ export default function Home() {
 
   return (
     <div className="h-screen overflow-hidden flex flex-col">
-      <Slider ref={sliderRef} {...settings} className="h-full">
+      <DynamicSlider ref={sliderRef} {...settings} className="h-full">
         {/* First slide - Current homepage content */}
         <div className="h-screen">
           <section className="relative h-full">
@@ -163,6 +170,8 @@ export default function Home() {
                   alt="Family watching projection"
                   fill
                   priority
+                  sizes="100vw"
+                  quality={75}
                   className="object-cover object-left scale-x-[-1] translate-y-10"
                 />
               </div>
@@ -229,6 +238,7 @@ export default function Home() {
                   className="absolute top-0 left-0 w-full h-full"
                   controls
                   poster="/videos/trailer-1.png"
+                  preload="none"
                 >
                   <source src="/videos/trailer-1.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -237,7 +247,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </Slider>
+      </DynamicSlider>
     </div>
   );
 }

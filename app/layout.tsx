@@ -1,22 +1,34 @@
 // app/layout.tsx - Server Component
-import localFont from 'next/font/local';
-import './globals.css';
-import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import BackgroundWrapper from '@/components/BackgroundWrapper';
-import ClientLoadingWrapper from '@/components/ClientLoadingWrapper';
+import localFont from "next/font/local";
+import "./globals.css";
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import dynamic from "next/dynamic";
+
+// Dynamic imports for loading wrappers
+const BackgroundWrapper = dynamic(
+  () => import("@/components/BackgroundWrapper")
+);
+const ClientLoadingWrapper = dynamic(
+  () => import("@/components/ClientLoadingWrapper"),
+  {
+    loading: () => <div className="min-h-screen bg-[#5f1e1d]" />,
+  }
+);
 
 // Import your custom font - Aktiv Grotesk Regular
 const customFont = localFont({
   src: [
     {
-      path: '../public/fonts/AktivGroteskVFTrial-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    }
+      path: "../public/fonts/AktivGroteskVFTrial-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
   ],
-  display: 'swap',
-  variable: '--font-custom', // This creates a CSS variable you can use
+  display: "swap",
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
+  variable: "--font-custom",
 });
 
 export default function RootLayout({
@@ -30,9 +42,7 @@ export default function RootLayout({
         <ClientLoadingWrapper>
           <BackgroundWrapper>
             <Header />
-            <main>
-              {children}
-            </main>
+            <main>{children}</main>
           </BackgroundWrapper>
         </ClientLoadingWrapper>
       </body>

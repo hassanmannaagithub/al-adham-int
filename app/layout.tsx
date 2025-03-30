@@ -31,6 +31,16 @@ const customFont = localFont({
   variable: "--font-custom",
 });
 
+export const metadata: Metadata = {
+  title: "Al-Adham International",
+  description: "Al-Adham International",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {

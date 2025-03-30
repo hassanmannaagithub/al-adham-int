@@ -1,7 +1,7 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -23,7 +23,7 @@ export default function Home() {
       rgba(158, 89, 34, 0.75) 20%, 
       rgba(158, 89, 34, 0.38) 35%, 
       rgba(158, 89, 34, 0) 40%
-    )`
+    )`,
   });
 
   // Update gradient when window resizes
@@ -31,8 +31,9 @@ export default function Home() {
     // Define the handler function
     const handleResize = () => {
       const width = window.innerWidth;
-      
-      if (width < 640) { // Small screens - extreme spread with very weak opacity
+
+      if (width < 640) {
+        // Small screens - extreme spread with very weak opacity
         setGradientStyles({
           background: `linear-gradient(
             to right, 
@@ -41,9 +42,10 @@ export default function Home() {
             rgba(158, 89, 34, 0.15) 40%, 
             rgba(158, 89, 34, 0.08) 70%,
             rgba(158, 89, 34, 0) 100%
-          )`
+          )`,
         });
-      } else if (width < 768) { // Medium screens - significant spread, weaker opacity
+      } else if (width < 768) {
+        // Medium screens - significant spread, weaker opacity
         setGradientStyles({
           background: `linear-gradient(
             to right, 
@@ -52,9 +54,10 @@ export default function Home() {
             rgba(158, 89, 34, 0.2) 40%, 
             rgba(158, 89, 34, 0.1) 65%,
             rgba(158, 89, 34, 0) 85%
-          )`
+          )`,
         });
-      } else { // Large screens - original gradient
+      } else {
+        // Large screens - original gradient
         setGradientStyles({
           background: `linear-gradient(
             to right, 
@@ -62,19 +65,19 @@ export default function Home() {
             rgba(158, 89, 34, 0.75) 20%, 
             rgba(158, 89, 34, 0.38) 35%, 
             rgba(158, 89, 34, 0) 40%
-          )`
+          )`,
         });
       }
     };
 
     // Set gradient on initial load
     handleResize();
-    
+
     // Add event listener
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     // Clean up
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Custom arrow components for the carousel with proper TypeScript props
@@ -87,8 +90,19 @@ export default function Home() {
       >
         {/* You can replace this with your custom image */}
         <div className="w-12 h-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
         </div>
       </button>
@@ -104,8 +118,19 @@ export default function Home() {
       >
         {/* You can replace this with your custom image */}
         <div className="w-12 h-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </div>
       </button>
@@ -142,28 +167,30 @@ export default function Home() {
                 />
               </div>
             </div>
-            
+
             {/* Multiple overlays to achieve the exact effect */}
             <div className="absolute inset-0 z-10">
               {/* Base warm overlay across entire image */}
-              <div 
+              <div
                 className="absolute inset-0"
                 style={{
-                  backgroundColor: 'rgba(158, 92, 33, 0.2)'
+                  backgroundColor: "rgba(158, 92, 33, 0.2)",
                 }}
               ></div>
-              
+
               {/* Responsive gradient from left */}
               <div
                 className="absolute inset-0"
                 style={{
                   ...gradientStyles,
-                  maskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 85%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 85%, transparent 100%)'
+                  maskImage:
+                    "linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 85%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 85%, transparent 100%)",
                 }}
               ></div>
             </div>
-            
+
             {/* Content container with higher z-index to appear above the shadow */}
             <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-2 sm:pt-4 md:pt-8 lg:pt-[13rem] justify-center lg:justify-start z-20">
               <div className="max-w-xl text-white text-center lg:text-left">
@@ -174,10 +201,11 @@ export default function Home() {
                   IS BRIGHT
                 </h1>
                 <p className="max-w-lg text-lg sm:text-xl md:text-2xl font-light mt-2 mb-6 tracking-widest mx-auto lg:mx-0">
-                  To artfully tell stories that are deeply rooted, close to reality, loaded with value to move people's lives.
+                  To artfully tell stories that are deeply rooted, close to
+                  reality, loaded with value to move people's lives.
                 </p>
                 <Link
-                  href="#"
+                  href="/production"
                   className="bg-[#ed7e0c] hover:bg-orange-600 transition-colors text-xl sm:text-2xl md:text-3xl text-white uppercase px-6 sm:px-8 md:px-12 py-[0.5rem] inline-block rounded-md"
                 >
                   Know More
@@ -190,9 +218,13 @@ export default function Home() {
         {/* Second slide - Local video with black background */}
         {/* Second slide - Local video with black background */}
         <div className="h-screen bg-black">
-          <div className="relative h-full flex items-center justify-center pt-[80px]"> {/* Add padding-top to account for header height */}
+          <div className="relative h-full flex items-center justify-center pt-[80px]">
+            {" "}
+            {/* Add padding-top to account for header height */}
             <div className="w-full max-w-4xl px-4 sm:px-0">
-              <div className="relative pb-[56.25%]"> {/* 16:9 aspect ratio */}
+              <div className="relative pb-[56.25%]">
+                {" "}
+                {/* 16:9 aspect ratio */}
                 <video
                   className="absolute top-0 left-0 w-full h-full"
                   controls

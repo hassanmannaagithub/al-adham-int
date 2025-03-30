@@ -181,6 +181,7 @@ export default function Header({ showProductions = true }: HeaderProps) {
             isMenuOpen ? "flex" : "hidden"
           } xl:flex flex-col xl:flex-row w-full xl:w-auto 
           mt-2 items-center gap-2 sm:gap-3 md:gap-4 xl:gap-10
+          ${!isDesktop ? "py-4 px-2" : ""}
         `}
           style={{
             display: isDesktop ? "flex" : isMenuOpen ? "flex" : "none",

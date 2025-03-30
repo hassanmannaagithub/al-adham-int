@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
+import { getBlurDataUrl } from "@/utils/imageUtils";
 
 interface HeaderProps {
   showProductions?: boolean;
@@ -120,6 +121,8 @@ export default function Header({ showProductions = true }: HeaderProps) {
                 height={60}
                 alt="Al Adham Productions Logo"
                 className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] md:w-[65px] md:h-[65px] xl:w-[69px] xl:h-[69px] rounded-full bg-orange-500"
+                blurDataURL={getBlurDataUrl(60, 60)}
+                placeholder="blur"
               />
             </div>
             <div className="flex flex-col pt-2 sm:pt-3 md:pt-4">
@@ -129,6 +132,8 @@ export default function Header({ showProductions = true }: HeaderProps) {
                 height={62}
                 alt="Al Adham Productions Logo"
                 className="w-[120px] sm:w-[135px] md:w-[145px] lg:w-[180px] xl:w-[218px] h-auto"
+                blurDataURL={getBlurDataUrl(218, 62)}
+                placeholder="blur"
               />
             </div>
           </Link>

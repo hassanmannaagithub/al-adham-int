@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getProductionBySlug } from "@/data/productionData";
+import { getBlurDataUrl } from "@/utils/imageUtils";
 
 export default function ProductionDetailPage() {
   const params = useParams();
@@ -58,6 +59,8 @@ export default function ProductionDetailPage() {
                   fill
                   className="object-cover object-center"
                   priority
+                  blurDataURL={getBlurDataUrl(800, 1000)}
+                  placeholder="blur"
                 />
               </div>
             </div>

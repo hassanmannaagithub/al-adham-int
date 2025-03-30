@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { getBlurDataUrl } from "@/utils/imageUtils";
 
 // Dynamically import Slider
 const DynamicSlider = dynamic(() => import("react-slick"), {
@@ -173,6 +174,8 @@ export default function Home() {
                   sizes="100vw"
                   quality={75}
                   className="object-cover object-left scale-x-[-1] translate-y-10"
+                  blurDataURL={getBlurDataUrl(1920, 1080)}
+                  placeholder="blur"
                 />
               </div>
             </div>

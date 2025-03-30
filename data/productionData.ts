@@ -22,7 +22,7 @@ export const productions: Production[] = [
     id: 1,
     title: "SOUQ AL HARIR 1",
     image: "/production/souq-al-harir-1.webp",
-    slugImg: "/production/slug-souq-al-harir-1.webp",
+    slugImg: "/production/slug/souq-al-harir-1.webp",
     alt: "Souq Al Harir 1",
     link: "/production/souq-al-harir-1",
     genres: ["SOCIAL", "DRAMA", "ROMANTIC"],

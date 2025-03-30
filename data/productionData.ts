@@ -3,7 +3,7 @@ export interface Production {
   id: number | string;
   title: string;
   image: string;
-  slugImg: string;
+  slugImg?: string;
   alt: string;
   link: string;
   // Additional fields for detail page
@@ -43,12 +43,12 @@ export const productions: Production[] = [
     id: 2,
     title: "AGHMED AYNAYK",
     image: "/production/aghmed-aynayk.webp",
-    slugImg: "/production/slug-aghmed-aynayk.webp",
+    slugImg: "/production/slug/aghmed-aynayk.webp",
     alt: "Aghmed Aynayk",
     link: "/production/aghmed-aynayk",
     genres: ["SOCIAL", "DRAMA"],
     description:
-      "Forced by life’s circumstances, Hayat entrusts her eight-year-old son Joud, who’s on the autism spectrum, to her best friend Mo’nes. Can he rise to the challenge?",
+      "Forced by life's circumstances, Hayat entrusts her eight-year-old son Joud, who's on the autism spectrum, to her best friend Mo'nes. Can he rise to the challenge?",
     stars: [
       "Muna Wassef",
       "Amal Arafa",
@@ -64,7 +64,7 @@ export const productions: Production[] = [
     id: 3,
     title: "AL ZAEEM",
     image: "/production/al-zaeem.webp",
-    slugImg: "/production/slug-al-zaeem.webp",
+    slugImg: "/production/slug/al-zaeem.webp",
     alt: "Al Zaeem",
     link: "/production/al-zaeem",
     genres: ["LEVANTINE SERIES", "DRAMA"],
@@ -86,7 +86,7 @@ export const productions: Production[] = [
     id: 4,
     title: "HAMAM CHAMEE",
     image: "/production/hamam-chamee.webp",
-    slugImg: "/production/slug-hamam-chamee.webp",
+    slugImg: "/production/slug/hamam-chamee.webp",
     alt: "Hamam Chamee",
     link: "/production/hamam-chamee",
     genres: ["HISTORICAL", "COMEDY", "DRAMA"],
@@ -128,14 +128,14 @@ export const productions: Production[] = [
   },
   {
     id: 6,
-    title: "bab el hara 4 ",
-    image: "/production/Bab-Al-Hara-4.webp",
-    slugImg: "/production/slug/Bab-Al-Hara-4.webp",
+    title: "BAB AL HARA 4 ",
+    image: "/production/bab-al-hara-4.webp",
+    slugImg: "/production/slug/bab-al-hara-4.webp",
     alt: "Bab El Hara 4",
     link: "/production/bab-el-hara-4",
     genres: ["SOCIAL", "DRAMA"],
     description:
-      "Bab Al-Hara  is one of the most popular television series in the Arab world, reportedly watched by millions of people in the Arab world. The series chronicles the daily happenings and family dramas in a neighborhood in Damascus, Syria in the inter-war period under French rule when the local population yearned for independence.",
+      "Bab Al-Hara is one of the most popular television series in the Arab world, reportedly watched by millions of people in the Arab world. The series chronicles the daily happenings and family dramas in a neighborhood in Damascus, Syria in the inter-war period under French rule when the local population yearned for independence.",
     stars: [
       "Abbas al-Noury",
       "Milad Youssef",
@@ -152,6 +152,35 @@ export const productions: Production[] = [
     ],
     episodeCount: 30,
     arabicTitle: "باب الحارة 4",
+    year: "2023",
+  },
+  {
+    id: 7,
+    title: "BAB AL HARA 5",
+    image: "/production/bab-al-hara-5.webp",
+    slugImg: "/production/slug/bab-al-hara-5.webp",
+    alt: "Bab El Hara 5",
+    link: "/production/bab-el-hara-5",
+    genres: ["SOCIAL", "DRAMA"],
+    description:
+      "Something is up Abu Diyab’s sleeves who disguises himself once he arrives at Al Dabe’ neighborhood and recognizes Mamoun, a notorious man with a dark past.",
+    stars: [
+      "Wafik Al Zaeem",
+      "Lilia Al Atrash",
+      "Samer Al Masri",
+      "Shoukran Mortaja",
+      "Wafa Moslally",
+      "Wael Sharaf",
+      "Milad Youssef",
+      "Muna Wassef",
+      "Mustafa Alkhani",
+      "Kosai Khauli",
+      "Fayez Kazak",
+      "Bassam Kousa",
+      "Jumana Murad",
+    ],
+    episodeCount: 30,
+    arabicTitle: "باب الحارة 5",
     year: "2023",
   },
 ];

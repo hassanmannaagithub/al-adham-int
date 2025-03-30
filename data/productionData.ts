@@ -3,6 +3,7 @@ export interface Production {
     id: number | string;
     title: string;
     image: string;
+    slugImg: string;
     alt: string;
     link: string;
     // Additional fields for detail page
@@ -21,6 +22,7 @@ export interface Production {
       id: 1,
       title: "SOUQ AL HARIR 1",
       image: "/production/souq-al-harir-1.webp",
+      slugImg: "/production/slug-souq-al-harir-1.webp",
       alt: "Souq Al Harir 1",
       link: "/production/souq-al-harir-1",
       genres: ['SOCIAL', 'DRAMA', 'ROMANTIC'],
@@ -34,6 +36,7 @@ export interface Production {
       id: 2,
       title: "AGHMED AYNAYK",
       image: "/production/aghmed-aynayk.webp",
+      slugImg: "/production/slug-aghmed-aynayk.webp",
       alt: "Aghmed Aynayk",
       link: "/production/aghmed-aynayk",
       genres: ['DRAMA', 'FAMILY'],
@@ -47,6 +50,7 @@ export interface Production {
       id: 3,
       title: "AL ZAEEM",
       image: "/production/al-zaeem.webp",
+      slugImg: "/production/slug-al-zaeem.webp",
       alt: "Al Zaeem",
       link: "/production/al-zaeem",
       genres: ['POLITICAL', 'DRAMA', 'THRILLER'],
@@ -60,6 +64,7 @@ export interface Production {
       id: 4,
       title: "HAMAM CHAMEE",
       image: "/production/hamam-chamee.webp",
+      slugImg: "/production/slug-hamam-chamee.webp",
       alt: "Hamam Chamee",
       link: "/production/hamam-chamee",
       genres: ['HISTORICAL', 'COMEDY', 'DRAMA'],

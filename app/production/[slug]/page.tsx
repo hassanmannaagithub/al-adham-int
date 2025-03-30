@@ -48,10 +48,10 @@ export default function ProductionDetailPage() {
             <div className="w-full lg:w-3/5 order-first lg:order-last mb-8 lg:mb-0 lg:flex lg:justify-end">
               <div className="relative aspect-[4/5] w-full max-w-2xl mx-auto lg:mr-0 lg:ml-auto" style={{height: "auto", maxHeight: "700px"}}>
                 <Image
-                  src={production.image}
+                  src={production.slugImg}
                   alt={production.alt || production.title}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
                 />
               </div>

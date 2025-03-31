@@ -133,15 +133,17 @@ export default function ProductionPage() {
                 <div key={production.id} className="px-1">
                   <div className="mb-4">
                     <div className="relative w-full aspect-[3/2] mx-auto overflow-hidden rounded-md">
-                      <Image
-                        src={production.image}
-                        alt={production.alt}
-                        fill
-                        sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 22vw"
-                        className="object-cover object-center"
-                        blurDataURL={getBlurDataUrl(800, 533)}
-                        placeholder="blur"
-                      />
+                      <Link href={production.link}>
+                        <Image
+                          src={production.image}
+                          alt={production.alt}
+                          fill
+                          sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 22vw"
+                          className="object-cover object-center hover:scale-105 transition-transform duration-300"
+                          blurDataURL={getBlurDataUrl(800, 533)}
+                          placeholder="blur"
+                        />
+                      </Link>
                     </div>
                     <h3 className="text-white font-bold text-lg sm:text-xl md:text-2xl mt-3 md:mt-4 line-clamp-1">
                       {production.title}

@@ -10,7 +10,7 @@ export default function ServicesContent() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-40 bg-[#ccc0a5]">
+    <div className="min-h-screen pt-20 bg-[#ccc0a5]">
       <div className="text-center mt-4 md:mt-8">
         <h1 className="text-4xl md:text-super-title font-light text-center pt-2 md:pt-4 tracking-widest">
           OUR SERVICES

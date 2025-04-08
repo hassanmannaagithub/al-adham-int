@@ -42,12 +42,10 @@ export default function Home() {
 
   // Update gradient when window resizes
   useEffect(() => {
-    // Define the handler function
     const handleResize = () => {
       const width = window.innerWidth;
 
       if (width < 640) {
-        // Small screens - extreme spread with very weak opacity
         setGradientStyles({
           background: `linear-gradient(
             to right, 
@@ -59,7 +57,6 @@ export default function Home() {
           )`,
         });
       } else if (width < 768) {
-        // Medium screens - significant spread, weaker opacity
         setGradientStyles({
           background: `linear-gradient(
             to right, 
@@ -71,7 +68,6 @@ export default function Home() {
           )`,
         });
       } else {
-        // Large screens - original gradient
         setGradientStyles({
           background: `linear-gradient(
             to right, 
@@ -84,17 +80,12 @@ export default function Home() {
       }
     };
 
-    // Set gradient on initial load
     handleResize();
-
-    // Add event listener
     window.addEventListener("resize", handleResize);
-
-    // Clean up
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Custom arrow components for the carousel with proper TypeScript props
+  // Custom arrow components for the carousel
   const CustomPrevArrow = (props: ArrowProps) => {
     const { onClick } = props;
     return (
@@ -102,7 +93,6 @@ export default function Home() {
         className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        {/* You can replace this with your custom image */}
         <div className="w-12 h-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -130,7 +120,6 @@ export default function Home() {
         className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 flex items-center justify-center"
         onClick={onClick}
       >
-        {/* You can replace this with your custom image */}
         <div className="w-12 h-12 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -165,66 +154,88 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
+      {/* Hero Section with Carousel */}
       <div className="h-screen relative">
-        <section className="relative h-full">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="relative w-[112%] h-full">
-              <Image
-                src="/home/imgs/home-background.jpg"
-                alt="Family watching projection"
-                fill
-                priority
-                sizes="100vw"
-                quality={75}
-                className="object-cover object-left scale-x-[-1] translate-y-10"
-                blurDataURL={getBlurDataUrl(1920, 1080)}
-                placeholder="blur"
-              />
+        <DynamicSlider ref={sliderRef} {...settings} className="h-full">
+          {/* First slide - Hero content */}
+          <div className="h-screen">
+            <section className="relative h-full">
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="relative w-[112%] h-full">
+                  <Image
+                    src="/home/imgs/home-background.jpg"
+                    alt="Family watching projection"
+                    fill
+                    priority
+                    sizes="100vw"
+                    quality={75}
+                    className="object-cover object-left scale-x-[-1] translate-y-10"
+                    blurDataURL={getBlurDataUrl(1920, 1080)}
+                    placeholder="blur"
+                  />
+                </div>
+              </div>
+
+              <div className="absolute inset-0 z-10">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundColor: "rgba(158, 92, 33, 0.2)",
+                  }}
+                ></div>
+
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    ...gradientStyles,
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 85%, transparent 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 85%, transparent 100%)",
+                  }}
+                ></div>
+              </div>
+
+              <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-2 sm:pt-4 md:pt-8 lg:pt-[13rem] justify-center lg:justify-start z-20">
+                <div className="max-w-xl text-white text-center lg:text-left">
+                  <h1 className="text-[4rem] md:text-[6.4rem] font-light leading-tight md:leading-[4.1rem]">
+                    OUR VISION
+                  </h1>
+                  <h1 className="text-[4rem] md:text-[6.4rem] font-bold leading-tight md:leading-[6.5rem]">
+                    IS BRIGHT
+                  </h1>
+                  <p className="max-w-lg text-lg sm:text-xl md:text-2xl font-light mt-2 mb-6 tracking-widest mx-auto lg:mx-0">
+                    To artfully tell stories that are deeply rooted, close to
+                    reality, loaded with value to move people's lives.
+                  </p>
+                  <Link
+                    href="/production"
+                    className="bg-[#ed7e0c] hover:bg-orange-600 transition-colors text-xl sm:text-2xl md:text-3xl text-white uppercase px-6 sm:px-8 md:px-12 py-[0.5rem] inline-block rounded-md"
+                  >
+                    Know More
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Second slide - Video */}
+          <div className="h-screen bg-black">
+            <div className="relative h-full flex items-center justify-center pt-[80px]">
+              <div className="w-full max-w-4xl px-4 sm:px-0">
+                <div className="relative pb-[56.25%]">
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/RP1SE9I5glM"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div className="absolute inset-0 z-10">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundColor: "rgba(158, 92, 33, 0.2)",
-              }}
-            ></div>
-
-            <div
-              className="absolute inset-0"
-              style={{
-                ...gradientStyles,
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 85%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 1) 85%, transparent 100%)",
-              }}
-            ></div>
-          </div>
-
-          <div className="relative h-full flex items-center px-4 sm:px-10 md:px-20 pt-2 sm:pt-4 md:pt-8 lg:pt-[13rem] justify-center lg:justify-start z-20">
-            <div className="max-w-xl text-white text-center lg:text-left">
-              <h1 className="text-[4rem] md:text-[6.4rem] font-light leading-tight md:leading-[4.1rem]">
-                OUR VISION
-              </h1>
-              <h1 className="text-[4rem] md:text-[6.4rem] font-bold leading-tight md:leading-[6.5rem]">
-                IS BRIGHT
-              </h1>
-              <p className="max-w-lg text-lg sm:text-xl md:text-2xl font-light mt-2 mb-6 tracking-widest mx-auto lg:mx-0">
-                To artfully tell stories that are deeply rooted, close to
-                reality, loaded with value to move people's lives.
-              </p>
-              <Link
-                href="/production"
-                className="bg-[#ed7e0c] hover:bg-orange-600 transition-colors text-xl sm:text-2xl md:text-3xl text-white uppercase px-6 sm:px-8 md:px-12 py-[0.5rem] inline-block rounded-md"
-              >
-                Know More
-              </Link>
-            </div>
-          </div>
-        </section>
+        </DynamicSlider>
       </div>
 
       {/* Production Section */}

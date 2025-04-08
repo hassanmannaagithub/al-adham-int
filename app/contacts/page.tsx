@@ -29,19 +29,19 @@ export default function ContactsPage() {
 
         {/* Content section */}
         <div className="container mx-auto px-4 relative z-10 flex-grow mt-12 md:mt-24">
-          <div className="flex flex-col items-center space-y-8 text-white text-center">
+          <div className="flex flex-col items-center text-white text-center">
             {/* Address */}
-            <div className="text-xl md:text-2xl font-normal tracking-wide">
+            <div className="text-xl md:text-2xl font-normal tracking-wide mb-8">
               Dubai Media City- Headquarters Building No.5- Ground Floor
             </div>
 
             {/* Phone Number */}
-            <div className="text-xl md:text-2xl font-normal">
+            <div className="text-xl md:text-2xl font-normal mb-8 tracking-wide">
               +971 555613732
             </div>
 
             {/* Email Addresses */}
-            <div className="flex flex-col space-y-2 mb-16">
+            <div className="flex flex-col space-y-2 mb-24 tracking-wide">
               <a
                 href="mailto:Moumen.almalla@aladham-int.com"
                 className="text-xl md:text-2xl font-normal text-[#ed7e0c] hover:text-[#ff9f2b] transition-colors"
@@ -57,8 +57,8 @@ export default function ContactsPage() {
             </div>
 
             {/* Divider Line */}
-            <div className="flex justify-center mt-24">
-              <div className="hidden md:block w-64 h-3 bg-white"></div>
+            <div className="flex justify-center">
+              <div className="w-64 h-3 bg-white"></div>
             </div>
           </div>
         </div>

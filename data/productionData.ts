@@ -20,27 +20,6 @@ export interface Production {
 export const productions: Production[] = [
   {
     id: 1,
-    title: "SOUQ AL HARIR 1",
-    image: "/production/souq-al-harir-1.webp",
-    slugImg: "/production/slug/souq-al-harir-1.webp",
-    alt: "Souq Al Harir 1",
-    link: "/production/souq-al-harir-1",
-    genres: ["SOCIAL", "DRAMA", "ROMANTIC"],
-    description:
-      "Omran the textile merchant wants to marry for love, but he'll face troubles not only from his wives' jealousy but other merchants for his trade ideas.",
-    stars: [
-      "Qamar Khalaf",
-      "Fadi Sabih",
-      "Nadine Tahseeine Bek",
-      "Karess Bashar",
-      "Salloum Haddad",
-    ],
-    episodeCount: 30,
-    arabicTitle: "سوق الحرير",
-    year: "2022",
-  },
-  {
-    id: 2,
     title: "AGHMED AYNAYK",
     image: "/production/aghmed-aynayk.webp",
     slugImg: "/production/slug/aghmed-aynayk.webp",
@@ -59,6 +38,27 @@ export const productions: Production[] = [
     episodeCount: 30,
     arabicTitle: "أغمض عينيك",
     year: "2023",
+  },
+  {
+    id: 2,
+    title: "SOUQ AL HARIR 1",
+    image: "/production/souq-al-harir-1.webp",
+    slugImg: "/production/slug/souq-al-harir-1.webp",
+    alt: "Souq Al Harir 1",
+    link: "/production/souq-al-harir-1",
+    genres: ["SOCIAL", "DRAMA", "ROMANTIC"],
+    description:
+      "Omran the textile merchant wants to marry for love, but he'll face troubles not only from his wives' jealousy but other merchants for his trade ideas.",
+    stars: [
+      "Qamar Khalaf",
+      "Fadi Sabih",
+      "Nadine Tahseeine Bek",
+      "Karess Bashar",
+      "Salloum Haddad",
+    ],
+    episodeCount: 30,
+    arabicTitle: "سوق الحرير",
+    year: "2022",
   },
   {
     id: 3,

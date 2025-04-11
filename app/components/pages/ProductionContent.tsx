@@ -122,6 +122,21 @@ export default function ProductionContent() {
           </h1>
         </div>
 
+        {/* Video Section */}
+        <div className="container mx-auto px-4 relative z-10 mb-12 sm:mb-16 md:mb-20">
+          <div className="w-full max-w-4xl mx-auto">
+            <div className="relative pb-[56.25%]">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/RP1SE9I5glM"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
         <div className="container max-w-[98%] xl:max-w-[95%] 2xl:max-w-[2000px] mx-auto relative z-10">
           <div className="production-slider relative px-8 md:px-12">
             <Slider {...settings}>

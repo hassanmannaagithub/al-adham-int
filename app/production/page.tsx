@@ -101,7 +101,7 @@ export default function ProductionPage() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden pt-16 bg-[#e17910]">
+    <div className="min-h-screen overflow-x-hidden pt-32 bg-[#e17910]">
       {/* Production Section with background image */}
       <section className="relative flex flex-col justify-center min-h-[calc(100vh-64px)]">
         {/* Background image */}
@@ -123,6 +123,21 @@ export default function ProductionPage() {
           <h1 className="text-3xl sm:text-4xl md:text-super-title font-light text-center text-white tracking-widest">
             OUR PRODUCTION
           </h1>
+        </div>
+
+        {/* Video Section */}
+        <div className="container mx-auto px-4 relative z-10 mb-12 sm:mb-16 md:mb-20">
+          <div className="w-full max-w-4xl mx-auto">
+            <div className="relative pb-[56.25%]">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/RP1SE9I5glM"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
 
         {/* Productions Carousel - Note the added px-8 md:px-12 class for arrow spacing */}

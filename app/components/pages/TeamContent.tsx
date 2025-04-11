@@ -5,8 +5,8 @@ import { teamMembers } from "@/data/teamData";
 
 export default function TeamContent() {
   // Split team members into rows for large screens to maintain original layout
-  const topRowMembers = teamMembers.slice(0, 2);
-  const bottomRowMembers = teamMembers.slice(2);
+  const topRowMembers = teamMembers.slice(0, 3);
+  const bottomRowMembers = teamMembers.slice(3);
 
   return (
     <div className="min-h-screen bg-[#dfd9ca]">
@@ -37,7 +37,7 @@ export default function TeamContent() {
           </div>
 
           <div className="hidden lg:flex lg:flex-col lg:space-y-16 xl:space-y-24">
-            <div className="flex flex-row justify-center lg:gap-16 xl:gap-24 2xl:gap-32">
+            <div className="flex flex-row justify-center lg:gap-12 xl:gap-16 2xl:gap-24">
               {topRowMembers.map((member) => (
                 <div key={member.id} className="flex justify-center">
                   <TeamMember

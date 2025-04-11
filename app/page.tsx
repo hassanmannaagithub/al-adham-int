@@ -218,23 +218,6 @@ export default function Home() {
               </div>
             </section>
           </div>
-
-          {/* Second slide - Video */}
-          <div className="h-screen bg-black">
-            <div className="relative h-full flex items-center justify-center pt-[80px]">
-              <div className="w-full max-w-4xl px-4 sm:px-0">
-                <div className="relative pb-[56.25%]">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/RP1SE9I5glM"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
         </DynamicSlider>
       </div>
 

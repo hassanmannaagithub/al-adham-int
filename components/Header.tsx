@@ -196,22 +196,6 @@ export default function Header({ showProductions = true }: HeaderProps) {
           }}
         >
           <Link
-            href="/production"
-            onClick={handleLinkClick}
-            className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0"
-            style={{ padding: isDesktop ? "0" : "0.5rem 0" }}
-          >
-            Our Production
-          </Link>
-          <Link
-            href="/clients"
-            onClick={handleLinkClick}
-            className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0"
-            style={{ padding: isDesktop ? "0" : "0.5rem 0" }}
-          >
-            Our Clients
-          </Link>
-          <Link
             href="/about"
             onClick={handleLinkClick}
             className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0"
@@ -236,12 +220,28 @@ export default function Header({ showProductions = true }: HeaderProps) {
             Services
           </Link>
           <Link
+            href="/production"
+            onClick={handleLinkClick}
+            className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0"
+            style={{ padding: isDesktop ? "0" : "0.5rem 0" }}
+          >
+            Our Production
+          </Link>
+          <Link
+            href="/clients"
+            onClick={handleLinkClick}
+            className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0"
+            style={{ padding: isDesktop ? "0" : "0.5rem 0" }}
+          >
+            Our Clients
+          </Link>
+          <Link
             href="/contacts"
             onClick={handleLinkClick}
             className="uppercase font-semibold tracking-widest xxl:text-xl sm:text-lg hover:text-orange-400 transition-colors py-2 xl:py-0"
             style={{ padding: isDesktop ? "0" : "0.5rem 0" }}
           >
-            Contacts
+            Contact Us
           </Link>
           <Search />
         </nav>

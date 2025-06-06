@@ -1,5 +1,8 @@
 "use client";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 export default function ContactsPage() {
   return (
     <div className="min-h-screen">
@@ -41,7 +44,7 @@ export default function ContactsPage() {
             </div>
 
             {/* Email Addresses */}
-            <div className="flex flex-col space-y-2 mb-24 tracking-wide">
+            <div className="flex flex-col space-y-2 mb-8 tracking-wide">
               <a
                 href="mailto:Moumen.almalla@aladham-int.com"
                 className="text-xl md:text-2xl font-normal text-[#ed7e0c] hover:text-[#ff9f2b] transition-colors"
@@ -55,7 +58,25 @@ export default function ContactsPage() {
                 ruba.almalla@aladham-int.com
               </a>
             </div>
-
+            {/* Social Media Icons */}
+          <div className="flex justify-center space-x-8 mb-24">
+            <a
+              href="https://www.facebook.com/Aladhamproductions"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-[#ed7e0c] hover:text-[#ff9f2b] transition-colors"
+            >
+              <FontAwesomeIcon icon={faFacebookSquare} />
+            </a>
+            <a
+              href="https://www.instagram.com/aladhamproductions/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-[#ed7e0c] hover:text-[#ff9f2b] transition-colors"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+          </div>
             {/* Divider Line */}
             <div className="flex justify-center">
               <div className="w-64 h-3 bg-white"></div>
